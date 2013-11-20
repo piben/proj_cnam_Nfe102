@@ -1,0 +1,10 @@
+nbproject/*
+composer.lock
+composer.phar
+
+app/cache/*
+app/logs/*
+app/config/parameters.yml
+vendor/*
+web/bundles/*
+web/js/*
