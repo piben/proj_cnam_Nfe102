@@ -1,0 +1,4 @@
+nfe102_resto:
+    resource: "@Nfe102RestoBundle/Resources/config/routing.yml"
+    prefix:   /
+
