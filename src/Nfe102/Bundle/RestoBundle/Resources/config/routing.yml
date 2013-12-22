@@ -5,3 +5,7 @@ nfe102_resto_hellopage:
 nfe102_resto_homepage:
     pattern:  /
     defaults: { _controller: Nfe102RestoBundle:Default:index }
+
+nfe102_resto_cart:
+    resource: "cartrouting.yml"
+    prefix:   /cart
