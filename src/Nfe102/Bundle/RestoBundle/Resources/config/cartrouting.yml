@@ -1,0 +1,25 @@
+# Fonction cart
+nfe102_resto_videcart:
+    pattern:  /SHOOT  
+    defaults: { _controller: Nfe102RestoBundle:Cart:shootcart }
+#   requirements: { _method: post }
+    
+nfe102_resto_addart:
+    pattern:  /add  
+    defaults: { _controller: Nfe102RestoBundle:Cart:addToCart }
+    requirements: { _method: post }
+
+nfe102_resto_delart:
+    pattern:  /del  
+    defaults: { _controller: Nfe102RestoBundle:Cart:removeFromCart }
+    requirements: { _method: post }
+
+nfe102_resto_basket:
+    pattern:  /basket  
+    defaults: { _controller: Nfe102RestoBundle:Cart:basket }
+    requirements: { _method: post }
+
+nfe102_resto_showCart:
+    pattern:  /showcart  
+    defaults: { _controller: Nfe102RestoBundle:Cart:showCart, _format: json}
+   # requirements: { _method: post }    
