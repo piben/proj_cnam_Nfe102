@@ -23,6 +23,10 @@ class CartController extends Controller {
             $session = $this->container->get('session');
             $cart = $session->get('cart');
 
+            if (!isset($cart)) { // Si aucun panier init
+                $cart = array();
+            }
+
             if (array_key_exists($idprod, $cart)) {
                 $cart[$idprod]++;
             }
@@ -34,7 +38,9 @@ class CartController extends Controller {
             if ($session->get('cart') != $cart) {
                 $session->set('cart', $cart);
             }
-            return new Response("Add OK", 200);
+            return new Response("more OK", 200);
+        } else {
+            return new Response("La page n'existe pas",404);
         }
     }
 
@@ -54,20 +60,28 @@ class CartController extends Controller {
                 }
                 $session->set('cart', $cart);
             }
-            return new Response("dell OK", 200);
+            return new Response("less OK", 200);
+        } else {
+            return new Response("La page n'existe pas",404);
         }
     }
 
-    public function basketAction(Request $idprod) {
+    public function delartAction(Request $request) {
+
         if ($request->isXmlHttpRequest()) {
+            $idprod = $request->get('idprod');
             $session = $this->container->get('session');
             $cart = $session->get('cart');
 
             if (isset($cart[$idprod])) {
+
                 unset($cart[$idprod]);
 
                 $session->set('cart', $cart);
             }
+            return new Response("del OK", 200);
+        } else {
+            return new Response("La page n'existe pas",404);
         }
     }
 
