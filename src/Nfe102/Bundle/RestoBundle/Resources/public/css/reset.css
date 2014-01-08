@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, header, footer, nav, aside, section, article {
+	margin:0;
+	padding:0;
+}
+
+/*Déclaration commune à deux selectors en utilisant le signe ","*/
+img, a img {
+	border: none;
+}
+

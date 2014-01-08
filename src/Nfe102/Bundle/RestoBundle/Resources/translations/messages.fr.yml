@@ -3,3 +3,11 @@ security.login.username: Login
 security.login.password: Mot de passe
 security.login.remember_me: Se souvenir de moi
 security.login.submit: Connexion
+
+
+# Page site
+resto.site.title: Mediterraneo
+resto.home.title: Accueil
+resto.about.title: Fonctionnement du site
+resto.contact.title: Contact
+resto.dropdown.title: Mon compte

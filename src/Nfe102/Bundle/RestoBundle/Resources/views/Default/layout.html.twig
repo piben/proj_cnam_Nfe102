@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+{% block css %}
+       {# <link href="{{ asset('bundles/nfe102resto/css/reset.css') }}" rel="stylesheet" type="text/css" media="all" />#}
+        <link href="{{ asset('bundles/nfe102resto/css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+
+        <style type="text/css" media="screen"></style>
+        <link rel="apple-touch-icon" href=".png">
+        <link rel="shortcut icon" href="favicon.png">
+
+{% endblock %}
+{% block js %}
+{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+
+        <div id="conteneur">
+            <div id="header">
+	{% include 'Nfe102RestoBundle:Default:banniere.html.twig' %}
+                </div>
+                <div id='cssmenu'>
+        {% block cssmenu %}
+	{% include 'Nfe102RestoBundle:Default:nav.html.twig' %}
+        {% endblock %}    
+                    </div>
+                    <div id="wrap">
+
+                        <div id="sidebar">
+	{% block sidebar %}	   
+                                <p>in oriente aguntur, Arelate hiemem agens Constantius post theatralis ludos atque circenses ambitioso editos apparatu diem sextum idus Octobres, qui imperii eius annum tricensimum terminabat, insolentiae pondera gravius librans, siquid dubium deferebatur aut falsum, pro liquido accipiens et conperto, inter alia excarnificatum excarnificatum .</p>
+	{% endblock %}		  
+                            </div>	
+
+                            <div id="contenu">
+	    {% block content %}                 
+                                    <!--<center>
+                                 <h1>Présentation</h1>-->
+                                    <p>Dum haec in oriente aguntur, Arelate hiemem agens Constantius post theatralis ludos atque circenses ambitioso editos apparatu diem sextum idus Octobres, qui imperii eius annum tricensimum terminabat, insolentiae pondera gravius librans, siquid dubium deferebatur aut falsum, pro liquido accipiens et conperto, inter alia excarnificatum Gerontium Magnentianae comitem partis exulari maerore multavit.</p>
+                                    <p>Dum haec in oriente aguntur, Arelate hiemem agens Constantius post theatralis ludos atque circenses ambitioso editos apparatu diem sextum idus Octobres, qui imperii eius annum tricensimum terminabat, insolentiae pondera gravius librans, siquid dubium deferebatur aut falsum, pro liquido accipiens et conperto, inter alia excarnificatum Gerontium Magnentianae comitem </p>
+                                    <!--</center>-->
+	   {% endblock %}		
+                                </div>
+                            </div>	
+                        
+        
+        {% include 'Nfe102RestoBundle:Default:footer.html.twig' %}
+             
+       </div>   
+                    </body>
+                </html>

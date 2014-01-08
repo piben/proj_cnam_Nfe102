@@ -1,0 +1,351 @@
+@charset "utf-8";
+body{
+    font-family: 'The Girl Next Door',cursive,Calibri, Arial, Helvetica, sans-serif !important;
+    color: black !important;
+    background-color: rgb(254,194,0)  !important;
+    background-image:url("../images/site/background.jpg") !important;
+    background-position:center !important; 
+    background-repeat:no-repeat   !important;
+
+}
+h1{
+    text-shadow: 0 2px 2px #465b00 !important;
+}
+#banniere{
+    font-size: 25px !important;
+    margin-left: 20% !important;
+}
+
+#contact{
+    font-size: 30px !important;
+}
+
+#header{
+    width: 760px !important;
+    height: 165px !important;
+    background-image:url("../images/site/logo_petit.png") !important; 
+    background-repeat:no-repeat !important;
+}
+
+.ident {
+    position: absolute !important;
+    right: 20% !important;
+    top: 1% !important;
+}
+
+#prestations{
+
+}
+#conteneur {
+
+    width:70% !important;
+    margin:0 auto !important;
+    background-color: rgba(254,194,0,0.8)  !important;
+    border-radius: 10px !important;
+    box-shadow: 12px 0px 50px 1px rgba(0,0,0,1) !important;
+    padding: 1% !important;
+}
+#menu_smart{
+    display:none !important;
+}
+
+#news{
+    height: 100% !important;
+}
+
+#wrap {
+    overflow:hidden !important;
+    margin-top: 1% !important;
+    height: auto !important;
+
+
+}
+
+#sidebar {
+    float:left !important; 
+    width:25% !important;
+    height: 404px !important;
+    padding: 2% 1% 2% 1% !important;
+    background-color: rgba(38,153,38,0.8)  !important;
+    /*border-radius: 10px !important;
+    box-shadow: 12px 0px 50px 1px rgba(0,0,0,1) !important;*/
+}
+
+
+
+
+#contenu {
+    width: 70% !important;
+    height: 25% !important;
+    background-color: rgba(192,192,192,0.8)  !important;
+    /*border-radius: 10px !important;
+    box-shadow: 12px 0px 50px 1px rgba(0,0,0,1) !important; */
+    margin-left:27% !important;
+    padding: 5% 2% 5% 1% !important;
+}
+
+
+#footer{
+
+    background-color: rgba(254,194,0,0.8) !important;
+    color:black !important;
+    width: 100% !important;
+    margin-top: 2% !important;
+    text-align: center !important;
+}
+
+
+.scrollbar{
+    overflow: auto !important;
+}
+
+.texte1{
+    padding: 0 30px !important;
+    height: 80% !important;
+}
+
+.btn-group-vertical {
+    display: inline-block !important;
+}
+
+h1{
+    padding-top: 30px !important;
+    text-align: center !important;
+}
+
+h2{
+    margin-bottom: -11px !important;
+    margin-top: 7px !important;
+    text-align: center !important;
+}
+
+a{
+    color:white !important;
+}
+
+#preview{
+    margin : 25px 40px !important;
+}
+
+/*****************PROPRIETES NAV.PHP ************************************/
+
+
+@charset "utf-8";
+/* Starter CSS for Flyout Menu */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li #cssmenu a {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 20px !important;
+    font-family: 'The Girl Next Door' !important;
+    line-height: 1 !important;
+}
+#cssmenu {
+    width: 100% !important;
+}
+#cssmenu ul {
+    zoom: 1 !important;
+    background-color: #FF0000 !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    border-radius: 4px !important;
+    border: 1px solid #187b0f !important;
+    -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3) !important;
+    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3) !important;
+}
+#cssmenu ul:before {
+    content: '' !important;
+    display: block !important;
+}
+#cssmenu ul:after {
+    content: '' !important;
+    display: table !important;
+    clear: both !important;
+}
+#cssmenu a,
+#cssmenu a:link,
+#cssmenu a:visited {
+    padding: 15px 20px !important;
+    display: block !important;
+    text-decoration: none !important;
+    color: black !important;
+    text-shadow: 0 -1px 1px #0b3607 !important;
+    border: none !important;
+}
+#cssmenu a:hover {
+    color: #0b3607 !important;
+    text-shadow: 0 1px 1px #34e524 !important;
+}
+#cssmenu li {
+    float: left !important;
+    border: none !important;
+}
+
+#cssmenu .vert{
+    background-color:#00cc00 !important;
+}
+
+#cssmenu .blanc{
+    background-color:#FFFFFF !important;
+}
+
+#cssmenu .rouge{
+    background-color:#FF0000 !important;
+    width:27% !important;
+}
+#cssmenu #size_li{
+
+    border: none !important;
+}
+
+/*#cssmenu li:hover {
+  background: #ffffff url(pattern.png) top left repeat !important;*/
+}
+#cssmenu li:first-child {
+    border-left: none !important;
+    -webkit-border-radius: 4px 0 0 4px !important;
+    -moz-border-radius: 4px 0 0 4px !important;
+    border-radius: 4px 0 0 4px !important;
+}
+
+
+
+
+/************************************************************************/
+
+/*@media screen and (min-width:801px) and (max-width:1024px) {
+
+}*/
+
+/*portrait tablette*/
+@media screen and (max-width:800px) {
+    #sidebar{
+        display:none !important;
+    }
+    #sidebar2{
+        display:none !important;
+    }
+    #contenu{
+        margin: 0 auto !important;
+    }
+    #footer{
+        width: 70% !important;
+        margin: 10px auto !important;
+    }
+}
+
+/*paysage smartphone*/
+
+@media screen and (min-width:0px) and (max-width:480px) {
+    body{
+
+        /*background-image: url("../images/site/bg_smart_land.png") !important;*/
+        background-attachment: fixed !important;
+        margin: 0 auto !important;
+        font-size: 12px !important;
+        padding: 0px !important;
+
+    }
+    #header{
+        width: 300px !important;
+        height: 200px !important;
+        display:none  !important;
+        background-image: url("../images/site/logo.png") !important;
+    }
+    #sidebar{
+        display:none !important;
+    }
+    #sidebar2{
+        display:none !important;
+    }
+
+
+    li{
+        list-style-type: none !important;
+        float:left !important;
+        margin-left:2% !important;
+
+    }
+
+    #contenu{
+
+        width:50%  !important;
+        margin-right: 43% !important;
+        margin-top: 8% !important;
+        height: 200px  !important;
+
+    }
+    #menu_smart{
+        display:inline !important;
+        width: 300px !important;
+
+    }
+
+    #footer{
+        width: 50% !important;
+        height: 10px !important;
+        padding-bottom: 3% !important;
+        margin-right: 43% !important;
+        margin-bottom: 10%  !important;
+    }
+}
+
+@media screen and (min-width:0px) and (max-width:320px) {
+    body{
+
+        background-image: url("../images/site/bg_smart_portrait.png") !important;
+        background-attachment: fixed !important;
+        margin: 0 auto !important;
+        font-size: 12px !important;
+        padding: 0px !important;
+
+    }
+    #header{
+        display:none  !important;
+    }
+    #sidebar{
+        display:none !important;
+    }
+    #sidebar2{
+        display:none !important;
+    }
+
+
+    li{
+        list-style-type: none !important;
+        float:left !important;
+        margin-left:2% !important;
+
+    }
+
+    #contenu{
+
+        width:40%  !important;
+        height: 768px !important;
+        margin-right: 59% !important;
+        margin-top: 10% !important;
+        height: 200px  !important;
+
+    }
+    #menu_smart{
+        display:inline !important;
+        width: 300px !important;
+
+    }
+
+    #footer{
+        width: 40% !important;
+        height: 10px !important;
+        padding-bottom: 3% !important;
+        margin-right: 59% !important;
+        margin-top: 20%  !important;
+    }
+}
+
+}
+
+

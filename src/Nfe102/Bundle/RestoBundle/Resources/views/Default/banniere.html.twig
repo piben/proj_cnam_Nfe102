@@ -1,0 +1,20 @@
+
+
+<h1> In Ristorante Italiano  </h1>
+
+<!--div class="well"> <a href="#" id="pop" class="btn btn-info" rel="popover" data-content="C'est tout simple à faire !" 
+          data-original-title="Test du Popover">
+          Cliquez sur moi pour le Popover</a> </div-->
+
+<div class="ident">     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Vous êtes connecté en tant que {{ app.user.username }} - 
+    <a id="pop" rel="popover" data-content="<a href='#'>Test du Popover</a>" href="{{ path('fos_user_security_logout') }}" >Déconnexion</a>
+    
+   {% else %}
+    <a id="pop" rel="popover" href="{{ path('fos_user_security_login') }}"
+       data-content="{#% render controller("FOSUserBundle:Security:login") %#}">Connexion</a>
+    {#% render controller("FOSUserBundle:Security:login") %#}
+   {% endif %} 
+</div>
+
+<p id="banniere"> &Agrave; emporter ou livraison &agrave; domicile : <b id="contact">04.77.00.00.00</b></p>

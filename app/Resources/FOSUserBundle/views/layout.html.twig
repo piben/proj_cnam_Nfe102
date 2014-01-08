@@ -1,0 +1,20 @@
+{# src/Sdz/UserBundle/Resources/views/layout.html.twig #}
+2
+3{# On étend notre layout #}
+4{% extends "RestoBundle::layout.html.twig" %}
+5
+6{# Dans notre layout, il faut définir le block body #}
+7{% block body %}
+8
+9  {# On affiche les messages flash que définissent les contrôleurs du bundle #}
+10  {% for key, message in app.session.flashbag.all() %}
+11    <div class="alert alert-{{ key }}">
+12      {{ message|trans({}, 'FOSUserBundle') }}
+13    </div>
+14  {% endfor %}
+15
+16  {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
+17  {% block fos_user_content %}
+18  {% endblock fos_user_content %}
+19
+20{% endblock %}
