@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class DefaultController extends Controller {
     
 
-    public function indexAction() {
+    public function indexAction($menu) {
 
     //   $this->killSessionAction();
         $this->sessionCart();
@@ -22,8 +22,12 @@ class DefaultController extends Controller {
 //$panier = $session->get('panier');
 //array_push($panier['numprod'], $id);
 //array_push($panier['qte'],$qte);
+        
+        if(!isset($menu)){    
+            $menu = 1;
+        } 
 
-        return $this->render('Nfe102RestoBundle:Default:index.html.twig');
+        return $this->render('Nfe102RestoBundle:Default:index.html.twig', array('menu' => $menu));
     }
 
     public function helloAction($name) {

@@ -1,5 +1,4 @@
-{% block js %}
-{{ parent() }}
+<!-- script insertion pannier -->
 <script type="text/javascript">
     
     function send(){
@@ -53,31 +52,6 @@
     
     </script>    
 
-
-    <style>
-            /*
-            .Tableau span {
-                display:inline;
-                float:left;
-                border:1px solid #046380;
-                margin:0px;
-                padding:6px;
-            }
-            .Tableau p.mef {
-                clear:left;
-                margin:0px;
-                padding:0px;
-            }
-            .Tableau p.legende {font-weight:bold}
-            .Tableau span.col1 {text-align: center; width:90px;}
-            .Tableau span.col2 {text-align: center; width:90px;}
-            .Tableau span.col3 {text-align: center; width:90px;}
-
-            */
-        </style>
-
-
-
         <script>
         function cartshow () {
         $.ajax({
@@ -112,7 +86,28 @@
   
 
 </script>
-{% endblock %} 
+
+    <style>
+            /*
+            .Tableau span {
+                display:inline;
+                float:left;
+                border:1px solid #046380;
+                margin:0px;
+                padding:6px;
+            }
+            .Tableau p.mef {
+                clear:left;
+                margin:0px;
+                padding:0px;
+            }
+            .Tableau p.legende {font-weight:bold}
+            .Tableau span.col1 {text-align: center; width:90px;}
+            .Tableau span.col2 {text-align: center; width:90px;}
+            .Tableau span.col3 {text-align: center; width:90px;}
+
+            */
+        </style>
 
 
 <div id="thisdiv"></div>

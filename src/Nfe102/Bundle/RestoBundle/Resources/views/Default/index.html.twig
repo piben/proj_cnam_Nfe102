@@ -7,7 +7,14 @@
 
 {% endblock %}            
 {% block content %}  
+{#% if online == false %}
+    <p>Our website is in maintenance mode. Please, come back later.</p>
+{% endif %#} 
   
-{% include 'Nfe102RestoBundle:Default:homecontent.html.twig' %}
-
+    {% if  menu == 1 %} {% include 'Nfe102RestoBundle:Default:homecontent.html.twig' %} {% endif %}
+    {% if  menu == 2 %}  {% endif %}
+    {% if  menu == 3 %} {% include 'Nfe102RestoBundle:Default:homecontent.html.twig' %} {% endif %}
+    {% if  menu == 4 %} {% include 'Nfe102RestoBundle:Default:homecontent.html.twig' %} {% endif %}
+    {% if  menu == 5 %} {% include 'Nfe102RestoBundle:Default:cart.html.twig' %} {% endif %}
+    
 {% endblock %}
