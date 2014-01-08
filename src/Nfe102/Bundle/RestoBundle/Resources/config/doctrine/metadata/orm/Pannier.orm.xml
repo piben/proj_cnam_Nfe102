@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Pannier" table="Pannier">
+    <id name="idpanier" type="integer" column="idPanier">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="datepanier" type="datetime" column="datePanier" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+    <field name="datecreatepanier" type="datetime" column="DateCreatePanier" nullable="true"/>
+    <field name="dateupdatepanier" type="datetime" column="DateUpdatePanier" nullable="true"/>
+    <many-to-one field="idcmdfac" target-entity="CmdFac">
+      <join-columns>
+        <join-column name="idCmdFac" referenced-column-name="idCmdFac"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idtransporteur" target-entity="Transporteur">
+      <join-columns>
+        <join-column name="idTransporteur" referenced-column-name="idTransporteur"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idproduit" target-entity="Produit" inversed-by="idpanier">
+      <join-table name="ligne_de_panier">
+        <join-columns>
+          <join-column name="idPanier" referenced-column-name="idPanier"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="idProduit" referenced-column-name="idProduit"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="idclient" target-entity="Client" mapped-by="idpanier"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Produit" table="Produit">
+    <id name="idproduit" type="integer" column="idProduit">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nom" type="string" column="Nom" length="45" nullable="true"/>
+    <field name="descrition" type="string" column="Descrition" length="45" nullable="true"/>
+    <field name="image" type="string" column="Image" length="45" nullable="true"/>
+    <field name="prix" type="string" column="Prix" length="45" nullable="true"/>
+    <field name="datecreateprod" type="datetime" column="DateCreateProd" nullable="true"/>
+    <field name="dateupdateprod" type="datetime" column="DateUpdateProd" nullable="true"/>
+    <many-to-many field="idcathegorie" target-entity="CathegorieProduit" inversed-by="idproduit">
+      <join-table name="classe">
+        <join-columns>
+          <join-column name="idProduit" referenced-column-name="idProduit"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="idCathegorie" referenced-column-name="idCathegorie"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="idpanier" target-entity="Pannier" mapped-by="idproduit"/>
+  </entity>
+</doctrine-mapping>

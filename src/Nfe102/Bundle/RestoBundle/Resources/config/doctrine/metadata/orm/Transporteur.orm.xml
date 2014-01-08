@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Transporteur" table="Transporteur">
+    <id name="idtransporteur" type="integer" column="idTransporteur">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomtransporteur" type="string" column="NomTransporteur" length="45" nullable="true"/>
+    <field name="teltransporteur" type="string" column="TelTransporteur" length="45" nullable="true"/>
+    <field name="datecreatetrans" type="datetime" column="DateCreateTrans" nullable="true"/>
+    <field name="dateupdatetrans" type="datetime" column="DateUpdateTrans" nullable="true"/>
+  </entity>
+</doctrine-mapping>

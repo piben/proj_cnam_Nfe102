@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Adresse" table="Adresse">
+    <id name="idadresse" type="integer" column="idAdresse">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="adresse1" type="string" column="Adresse1" length="45" nullable="true"/>
+    <field name="adresse2" type="string" column="Adresse2" length="45" nullable="true"/>
+    <field name="typeadresse" type="string" column="TypeAdresse" length="45" nullable="true"/>
+    <field name="datecreateadresse" type="datetime" column="DateCreateAdresse" nullable="true"/>
+    <field name="dateupdateadresse" type="datetime" column="DateUpdateAdresse" nullable="true"/>
+    <many-to-one field="idcodepostal" target-entity="CodesPostaux">
+      <join-columns>
+        <join-column name="idCodePostal" referenced-column-name="idCodePostal"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="idclient" target-entity="Client" mapped-by="idadresse"/>
+  </entity>
+</doctrine-mapping>
