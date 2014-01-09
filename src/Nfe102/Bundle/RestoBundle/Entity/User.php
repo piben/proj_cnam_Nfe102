@@ -77,15 +77,6 @@ class User extends BaseUser
      */
     protected $idadresse;
 
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idadresse = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
     /**
      * Get id
