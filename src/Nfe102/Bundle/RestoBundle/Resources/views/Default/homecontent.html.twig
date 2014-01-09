@@ -16,7 +16,7 @@ $(function (){
 
 <!-- content -->
   
-   <div id="myCarousel" class="carousel slide">
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="item active"> <img alt="" src="{{ asset('bundles/nfe102resto/images/3-2-1-history-chicago-style.jpg') }} " height="268" width="400"/>
       <div class="carousel-caption">
@@ -34,6 +34,11 @@ $(function (){
       </div>
     </div>
   </div>
-  <a class="carousel-control left" data-slide="prev" href="#myCarousel">‹</a> 
-  <a class="carousel-control right" data-slide="next" href="#myCarousel">›</a> 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
  </div>        

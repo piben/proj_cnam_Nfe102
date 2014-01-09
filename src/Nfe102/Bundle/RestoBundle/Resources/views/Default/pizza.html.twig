@@ -1,4 +1,6 @@
 {% include 'Nfe102RestoBundle:Default:cart.js.twig' %}
+
+{# TODO fonction génération liste #}
 <table class="table table-hover">
     <tr>                   
         <td>
@@ -9,12 +11,34 @@
         </td>
         <td>
             <span class="prix">
-                35.60 &euro;
+                15.60 &euro;
             </span>
         </td>
         <td>
             <span class="qté">
-                <button type="button" class="btn btn-default btn-lg" onclick="javascript:modcart('more','78685674')">
+                <button type="button" class="btn btn-default btn-lg" onclick="javascript:modal('78685674'),cartshow();">
+  <span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier
+</button>
+
+                {#<button class="btn btn-default btn-sm glyphicon glyphicon-shopping-cart" type="button" onclick="javascript:modcart('more',$('[name=idProd]').val())" value="Ajouter au panier"/>#}
+            </span>
+        </td>
+    </tr>
+        <tr>                   
+        <td>
+            <div class="produitCont">
+                <img src="{{ asset('bundles/nfe102resto/images/') }}78685675.jpg" height="67" width="100" class="img-rounded"/>
+                <span>Descrition</span>
+            </div>
+        </td>
+        <td>
+            <span class="prix">
+                15.90 &euro;
+            </span>
+        </td>
+        <td>
+            <span class="qté">
+                <button type="button" class="btn btn-default btn-lg" onclick="javascript:modal('78685675'),cartshow();">
   <span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier
 </button>
 
@@ -23,6 +47,43 @@
         </td>
     </tr>
 
-</table>                    
+</table> 
+
+    <!-- Button to trigger modal -->
+
+     
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    
+    <h3 id="myModalLabel">Mon Panier</h3>
+    </div>
+    <div class="modal-body">
+        <input type="hidden" name="articleId" id="articleId" value=""/>
+                    <table class="cart table table-striped table-responsive">
+                    <tr class="showcart">
+                        <th>Produit(s)</th>
+                        <th>Mode de livraison</th>
+                        <th>Prix&nbsp;unitaire</th>
+                        <th>Quantit&eacute;</th>
+                        <th>Total</th>
+                    </tr>
+                    <!-- Ajax insertion -->
+                    <tr>
+                </table>
+    </div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+    <button class="btn btn-primary" onclick="javascript:modcart('more',$('.modal-body #articleId').val());">Ajouter au panier</button>
+    </div>
+    </div>
+
+<script type="text/javascript">
+    function modal (articleId) {
+        $(".modal-body #articleId").val( articleId );
+    $('#myModal').modal({
+    keyboard: false
+    })}
+</script>
 
 

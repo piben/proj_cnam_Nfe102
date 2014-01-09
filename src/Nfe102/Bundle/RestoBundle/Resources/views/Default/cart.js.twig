@@ -60,7 +60,10 @@
          $(".ligne").remove();   
          }
 
-             var out = "";    
+             var out = ""; 
+
+if (cart != '') {
+    
     for (var i in cart) {
         //<!-- debut gene -->
               out +=   '<tr class="ligne">' +                   
@@ -95,11 +98,15 @@
                             '</span>' +
                         '</td>' +
                     '</tr>';
-
+              } 
+              
+              } else {
+              out = '<tr class="ligne"><td>Le panier est vide</td></tr>';
+              }
  
       $( ".showcart" ).after(out);
        // console.log(data);
              }
 }
-})}; 
-</script>
+)}; 
+    </script>
