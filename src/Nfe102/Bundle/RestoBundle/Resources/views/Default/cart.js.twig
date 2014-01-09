@@ -1,0 +1,105 @@
+<!-- script insertion pannier -->  
+<script type="text/javascript">
+
+    function send(){
+        val =  $('#art').val();
+        alert(val );
+        };
+
+    
+    // function mod cart
+    /**
+     * paramétre more, less, del, reset
+     */
+             function modcart(param,id) {
+           
+                switch(param)
+                {
+                case 'more':
+                  url = '{{ path('nfe102_resto_moreart') }}';
+                  break;
+                case 'less':
+                  url = '{{ path('nfe102_resto_lessart') }}';
+                  break;
+                case 'del':
+                  url = '{{ path('nfe102_resto_delart') }}';
+                  break;
+               case 'reset':
+                  url = '{{ path('nfe102_resto_resetcart') }}';
+                  break;                  
+                default:
+                  alert('Error');
+                }
+           
+            $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: 'idprod='+id,
+                    success: function (ret) { 
+                        
+                       cartshow(); 
+
+                    },  
+                    error: function(ret) { cartshow(); 
+                     //   alertview("E",mail,JSON.stringify(ret.responseText));
+                    }
+                  });  
+           
+    };
+    
+
+    function cartshow () {
+    $.ajax({
+    type: "POST",
+    url: "{{ path('nfe102_resto_showCart') }}",
+    dataType: 'json',
+  //  async: false,
+    success: function(cart){
+        
+           if ($(".ligne")){
+         $(".ligne").remove();   
+         }
+
+             var out = "";    
+    for (var i in cart) {
+        //<!-- debut gene -->
+              out +=   '<tr class="ligne">' +                   
+                        '<td>' +
+                            '<div class="produitCont">' +
+                                '<img src="{{ asset('bundles/nfe102resto/images/') }}'+ i +'.jpg" height="67" width="100" class="img-rounded"/>' +
+                                '<span>Descrition</span>' +
+                            '</div>' +
+                        '</td>' +
+                        '<td class="modeLivraison domicile">' +
+                            '<div>' +
+                                '<p>A domicile</p>' +
+                            '</div>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span class="prix">' +
+                                '35.60 &euro;' +
+                            '</span>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span class="qté">' +
+                                '<input type="hidden"  name="idProd"  value="'+i+'">' +
+                                '<input class="btn btn-default" size="2" maxlength="2" type="text" value="'+ cart[i] +'"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-plus" type="button" onclick="javascript:modcart(\'more\','+ i +')" value="+"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-minus" type="button" onclick="javascript:modcart(\'less\','+ i +')" value="-"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-trash" type="button" onclick="javascript:modcart(\'del\','+ i +')"/>' +
+                            '</span>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span class="prix prixTotal">' +
+                                '35.60 &euro;' + // TODO Prix
+                            '</span>' +
+                        '</td>' +
+                    '</tr>';
+
+ 
+      $( ".showcart" ).after(out);
+       // console.log(data);
+             }
+}
+})}; 
+</script>

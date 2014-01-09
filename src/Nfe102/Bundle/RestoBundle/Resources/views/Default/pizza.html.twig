@@ -1,0 +1,28 @@
+{% include 'Nfe102RestoBundle:Default:cart.js.twig' %}
+<table class="table table-hover">
+    <tr>                   
+        <td>
+            <div class="produitCont">
+                <img src="{{ asset('bundles/nfe102resto/images/') }}78685674.jpg" height="67" width="100" class="img-rounded"/>
+                <span>Descrition</span>
+            </div>
+        </td>
+        <td>
+            <span class="prix">
+                35.60 &euro;
+            </span>
+        </td>
+        <td>
+            <span class="qté">
+                <button type="button" class="btn btn-default btn-lg" onclick="javascript:modcart('more','78685674')">
+  <span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier
+</button>
+
+                {#<button class="btn btn-default btn-sm glyphicon glyphicon-shopping-cart" type="button" onclick="javascript:modcart('more',$('[name=idProd]').val())" value="Ajouter au panier"/>#}
+            </span>
+        </td>
+    </tr>
+
+</table>                    
+
+
