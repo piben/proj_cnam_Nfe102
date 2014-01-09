@@ -48,6 +48,13 @@ class Produit
      * @ORM\Column(name="Prix", type="string", length=45, nullable=true)
      */
     private $prix;
+    
+    /**
+     * @var bit
+     *
+     * @ORM\Column(name="dispo", type="string", length=7, nullable=true)
+     */
+    private $dispo;
 
     /**
      * @var \DateTime
@@ -307,5 +314,28 @@ class Produit
     public function getIdcathegorie()
     {
         return $this->idcathegorie;
+    }
+
+    /**
+     * Set dispo
+     *
+     * @param string $dispo
+     * @return Produit
+     */
+    public function setDispo($dispo)
+    {
+        $this->dispo = $dispo;
+    
+        return $this;
+    }
+
+    /**
+     * Get dispo
+     *
+     * @return string 
+     */
+    public function getDispo()
+    {
+        return $this->dispo;
     }
 }
