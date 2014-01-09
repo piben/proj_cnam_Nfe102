@@ -59,7 +59,7 @@ class Adresse
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Client", mappedBy="idadresse")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="idadresse")
      */
     private $idclient;
 

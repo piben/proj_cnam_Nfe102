@@ -52,7 +52,7 @@ class Pannier
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Client", mappedBy="idpanier")
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="idpanier")
      */
     private $idclient;
 

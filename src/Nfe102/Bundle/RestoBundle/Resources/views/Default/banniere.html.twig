@@ -15,7 +15,13 @@ $(function (){
 <div class="ident">     
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     Vous êtes connecté en tant que {{ app.user.username }} - 
-    <a id="pop" rel="popover" data-content="<a href='#'>Test du Popover</a>" href="{{ path('fos_user_security_logout') }}" >Déconnexion</a>
+    <a id="pop" rel="popover" 
+       data-content='<a type="button" href="{{ path('fos_user_profile_edit') }}" class="btn btn-default">
+                        <span class="glyphicon glyphicon glyphicon-user"></span> Mon compte
+                     </a>'>
+       
+       
+       href="{{ path('fos_user_security_logout') }}" >Déconnexion</a>
     
    {% else %}
     {% include 'Nfe102RestoBundle:Default:login.html.twig' %}

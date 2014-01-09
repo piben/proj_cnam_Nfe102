@@ -5,3 +5,8 @@ services:
 #    nfe102_resto.example:
 #        class: %nfe102_resto.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    nfe102_user.registration.form.type:
+        class: Nfe102\Bundle\RestoBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: nfe102_user_registration }
