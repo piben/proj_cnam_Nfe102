@@ -17,3 +17,7 @@ nfe102_resto_admin:
 nfe102_resto_produit:
     resource: "routing/produit.yml"
     prefix: /produit
+    
+nfe102_resto_produit:
+    resource: "routing/cathegorieproduit.yml"
+    prefix: /cathegorieproduit

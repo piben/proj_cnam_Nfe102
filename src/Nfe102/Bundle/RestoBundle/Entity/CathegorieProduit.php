@@ -19,7 +19,7 @@ class CathegorieProduit
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcathegorie;
+    private $id;
 
     /**
      * @var string
@@ -175,4 +175,14 @@ class CathegorieProduit
         return $this->type;
     }
     
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
