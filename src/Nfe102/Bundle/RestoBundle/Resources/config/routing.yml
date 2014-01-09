@@ -9,3 +9,11 @@ nfe102_resto_homepage:
 nfe102_resto_cart:
     resource: "cartrouting.yml"
     prefix:   /cart
+    
+nfe102_resto_admin:
+    resource: "adminrouting.yml"
+    prefix: /admin
+    
+nfe102_resto_produit:
+    resource: "routing/produit.yml"
+    prefix: /produit

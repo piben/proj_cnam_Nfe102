@@ -1,0 +1,5 @@
+## YAML Template.
+---
+nfe102_resto_addproduct:
+    path: /addproduct
+    defaults: { _controller: Nfe102RestoBundle:Admin:addproduct}

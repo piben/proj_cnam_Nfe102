@@ -19,7 +19,7 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idproduit;
+    private $id;
 
     /**
      * @var string
@@ -338,4 +338,20 @@ class Produit
     {
         return $this->dispo;
     }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+     public function __toString()
+ {
+     return $this->idcathegorie;
+ }
+    
 }

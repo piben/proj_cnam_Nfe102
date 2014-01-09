@@ -65,7 +65,7 @@ class Pannier
      *     @ORM\JoinColumn(name="idPanier", referencedColumnName="idPanier")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idProduit", referencedColumnName="idProduit")
+     *     @ORM\JoinColumn(name="idproduit", referencedColumnName="idProduit")
      *   }
      * )
      */
