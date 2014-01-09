@@ -37,7 +37,7 @@
                     data: 'idprod='+id,
                     success: function (ret) { 
                         
-                        cartshow(); 
+                       cartshow(); 
                        // alert(ret);
                     //$('.thisdiv').html('');    
                   //  $('#thisdiv').load(document.URL +  '#thisdiv');
@@ -52,72 +52,141 @@
     
     </script>    
 
-        <script>
-        function cartshow () {
-        $.ajax({
-        type: "POST",
-        url: "{{ path('nfe102_resto_showCart') }}",
-        dataType: 'json',
-      //  async: false,
-        success: function(cart){
-          var out =  '<div class="Tableau">' +
-                     '<p class="legende">' +
-                     '<span class="col1">Id Prod</span>' +
-                     '<span class="col2">Qte</span>' +
-                     '</p>';
-                 
-        for (var i in cart) {
-        out += '<p class="mef"><span class="col1">' + i + '</span>';
-        out += '<span class="col2">' + cart[i] + '</span>';
-        out += '<span class="col3 btn-toolbar" role="toolbar">';
-        out += '<button class="btn btn-default btn-sm glyphicon glyphicon-plus" type="button" onclick="javascript:modcart(\'more\','+ i +')" value="+"/>';
-        out += '<button class="btn btn-default btn-sm glyphicon glyphicon-minus" type="button" onclick="javascript:modcart(\'less\','+ i +')" value="-"/>';
-        out += '<button class="btn btn-default btn-sm glyphicon glyphicon-trash" type="button" onclick="javascript:modcart(\'del\','+ i +')"/>';
-        out += '</span></p>';
-    }
-    
-    out +='</div>';
-    
-    
-          $('#thisdiv').html(out);
-           // console.log(data);
-                   }
-  })}; 
+    <script>
+    function cartshow () {
+    $.ajax({
+    type: "POST",
+    url: "{{ path('nfe102_resto_showCart') }}",
+    dataType: 'json',
+  //  async: false,
+    success: function(cart){
+
+             var out = "";    
+    for (var i in cart) {
+        //<!-- debut gene -->
+              out +=   '<tr class="ligne">' +                   
+                        '<td>' +
+                            '<div class="produitCont">' +
+                                '<img src="{{ asset('bundles/nfe102resto/images/') }}'+ i +'.jpg" height="67" width="100" class="img-rounded"/>' +
+                                '<span>Descrition</span>' +
+                            '</div>' +
+                        '</td>' +
+                        '<td class="modeLivraison domicile">' +
+                            '<div>' +
+                                '<p>A domicile</p>' +
+                            '</div>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span class="prix">' +
+                                '35.60 &euro;' +
+                            '</span>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span class="qté">' +
+                                '<input type="hidden"  name="idProd"  value="'+i+'">' +
+                                '<input class="btn btn-default" size="2" maxlength="2" type="text" value="'+ cart[i] +'"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-plus" type="button" onclick="javascript:modcart(\'more\','+ i +')" value="+"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-minus" type="button" onclick="javascript:modcart(\'less\','+ i +')" value="-"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-trash" type="button" onclick="javascript:modcart(\'del\','+ i +')"/>' +
+                            '</span>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span class="prix prixTotal">' +
+                                '35.60 &euro;' + // TODO Prix
+                            '</span>' +
+                        '</td>' +
+                    '</tr>';
+
+    if ($(".ligne")){
+         $(".ligne").remove();   
+         }
+      $( ".showcart" ).after(out);
+       // console.log(data);
+             }
+}
+})}; 
   
 
-</script>
+        </script>
 
-    <style>
-            /*
-            .Tableau span {
-                display:inline;
-                float:left;
-                border:1px solid #046380;
-                margin:0px;
-                padding:6px;
-            }
-            .Tableau p.mef {
-                clear:left;
-                margin:0px;
-                padding:0px;
-            }
-            .Tableau p.legende {font-weight:bold}
-            .Tableau span.col1 {text-align: center; width:90px;}
-            .Tableau span.col2 {text-align: center; width:90px;}
-            .Tableau span.col3 {text-align: center; width:90px;}
+            <style type="text/css">
+                    .cart,tr,th,td {
+                        font-family:verdana;
+                        border: 1px solid black;
+                    }     
 
-            */
-        </style>
+                </style>
+
+ <div id="thisdiv"></div>   
+
+                <table class="cart table table-striped table-responsive">
+                    <tr class="showcart">
+                        <th>Produit(s)</th>
+                        <th>Mode de livraison</th>
+                        <th>Prix&nbsp;unitaire</th>
+                        <th>Quantit&eacute;</th>
+                        <th>Total</th>
+                    </tr>
+
+<!-- debut gene 
+                    <tr>                   
+                        <td>
+                            <div class="produitCont">
+                                <img src="{{ asset('bundles/nfe102resto/images/') }}78685674.jpg" height="67" width="100" class="img-rounded"/>
+                                <span>Descrition</span>
+                            </div>
+                        </td>
+                        <td class="modeLivraison domicile">
+                            <div>
+                                <p>A domicile</p>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="prix">
+                                35.60 &euro;
+                            </span>
+                        </td>
+                        <td>
+                            <span class="qté">
+                                <input type="hidden"  name="idProd"  value="78685674">
+                                <input class="btn btn-default" size="2" maxlength="2" type="text" value="1"/>
+                                <button class="btn btn-default btn-sm glyphicon glyphicon-plus" type="button" onclick="javascript:modcart('more',$('[name=idProd]').val())" value="+"/>
+                                <button class="btn btn-default btn-sm glyphicon glyphicon-minus" type="button" onclick="javascript:modcart('less','+ i +')" value="-"/>
+                                <button class="btn btn-default btn-sm glyphicon glyphicon-trash" type="button" onclick="javascript:modcart('del','+ i +')"/>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="prix prixTotal">
+                                35.60 &euro;
+                            </span>
+                        </td>
+                    </tr>
+
+fin gene -->
 
 
-<div id="thisdiv"></div>
-    <br /><br /><br />
-        <input type="button" onclick="javascript:modcart('more',$('#art').val())" value="+"/>
-        <input type="button" onclick="javascript:modcart('less',$('#art').val())" value="-"/>
-        <input type="button" onclick="javascript:modcart('del',$('#art').val())" value="dell Art"/>
-        <input type="button" onclick="javascript:modcart('reset','')" value="vider panier"/>
-        <div id="ex">
-        <input type="text" id="art" value=""/> 
-       </div>
-        
-        
+                    <tr>
+
+                        <td colspan="3" class="subTotal ">
+                            <span>Total produits</span>
+                            <span class="sum"></span>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="3" class="subTotal ">
+                            <span>Frais de livraison</span>
+                            <span class="sum"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="subTotal  total ">
+                            <span>TOTAL</span>
+                            <span class="sum"></span>
+                        </td>
+                    </tr>
+
+
+                </table>
+                
+                        
