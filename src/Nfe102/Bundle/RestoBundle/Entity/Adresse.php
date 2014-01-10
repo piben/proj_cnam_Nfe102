@@ -19,7 +19,7 @@ class Adresse
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idadresse;
+    private $id;
 
     /**
      * @var string
@@ -61,7 +61,7 @@ class Adresse
      *
      * @ORM\ManyToMany(targetEntity="User", mappedBy="idadresse")
      */
-    private $idclient;
+    private $iduser;
 
     /**
      * @var \CodesPostaux
@@ -261,5 +261,48 @@ class Adresse
     public function getIdcodepostal()
     {
         return $this->idcodepostal;
+    }
+
+    /**
+     * Add iduser
+     *
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $iduser
+     * @return Adresse
+     */
+    public function addIduser(\Nfe102\Bundle\RestoBundle\Entity\User $iduser)
+    {
+        $this->iduser[] = $iduser;
+    
+        return $this;
+    }
+
+    /**
+     * Remove iduser
+     *
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $iduser
+     */
+    public function removeIduser(\Nfe102\Bundle\RestoBundle\Entity\User $iduser)
+    {
+        $this->iduser->removeElement($iduser);
+    }
+
+    /**
+     * Get iduser
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIduser()
+    {
+        return $this->iduser;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

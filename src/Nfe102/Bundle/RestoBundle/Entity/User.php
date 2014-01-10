@@ -68,7 +68,7 @@ class User extends BaseUser
      * @ORM\ManyToMany(targetEntity="Adresse", inversedBy="id")
      * @ORM\JoinTable(name="habite",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="User", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="idAdresse", referencedColumnName="idAdresse")
@@ -244,5 +244,6 @@ class User extends BaseUser
     public function getIdadresse()
     {
         return $this->idadresse;
-    }
+    }   
+   
  }

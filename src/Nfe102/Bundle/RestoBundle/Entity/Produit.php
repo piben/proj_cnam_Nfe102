@@ -52,7 +52,7 @@ class Produit
     /**
      * @var bit
      *
-     * @ORM\Column(name="dispo", type="string", length=7, nullable=true)
+     * @ORM\Column(name="dispo", type="text", nullable=true)
      */
     private $dispo;
 
@@ -349,9 +349,9 @@ class Produit
         return $this->id;
     }
     
-     public function __toString()
- {
-     return $this->idcathegorie;
- }
+    public function __toString()
+    {
+         return $this->idcathegorie;
+    }
     
 }

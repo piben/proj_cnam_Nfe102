@@ -18,6 +18,10 @@ nfe102_resto_produit:
     resource: "routing/produit.yml"
     prefix: /produit
     
-nfe102_resto_produit:
+nfe102_resto_cathegorieproduit:
     resource: "routing/cathegorieproduit.yml"
     prefix: /cathegorieproduit
+    
+nfe102_resto_adresse:
+    resource: "routing/adresse.yml"
+    prefix: /adresse

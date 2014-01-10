@@ -22,6 +22,7 @@
 
         <div id="conteneur">
             <div id="header">
+                
 	{% include 'Nfe102RestoBundle:Default:banniere.html.twig' %}
                 </div>
                 <div id='cssmenu'>
@@ -40,7 +41,9 @@
                             </div>	
 
                             <div id="contenu">
-	    {% block content %}                 
+	    {% block content %}    
+                                {% block fos_user_content %}
+                                {% endblock fos_user_content %}
                                     <!--<center>
                                  <h1>Présentation</h1>
                                     <p>Dum haec in oriente aguntur, Arelate hiemem agens Constantius post theatralis ludos atque circenses ambitioso editos apparatu diem sextum idus Octobres, qui imperii eius annum tricensimum terminabat, insolentiae pondera gravius librans, siquid dubium deferebatur aut falsum, pro liquido accipiens et conperto, inter alia excarnificatum Gerontium Magnentianae comitem partis exulari maerore multavit.</p>
