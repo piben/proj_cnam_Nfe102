@@ -14,6 +14,6 @@
         <join-column name="idCodePostal" referenced-column-name="idCodePostal"/>
       </join-columns>
     </many-to-one>
-    <many-to-many field="idclient" target-entity="Client" mapped-by="idadresse"/>
+    <many-to-many field="user" target-entity="User" mapped-by="idadresse"/>
   </entity>
 </doctrine-mapping>

@@ -1,10 +1,9 @@
 <?php
-// src/Nfe102/Bundle/RestoBundle/Entity;
 
 namespace Nfe102\Bundle\RestoBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * @ORM\Entity
@@ -13,11 +12,19 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
+    
+        public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
 
     /**
      * @var string
@@ -32,8 +39,8 @@ class User extends BaseUser
      * @ORM\Column(name="PrenomClient", type="string", length=45, nullable=true)
      */
     protected $prenomclient;
-    
-/**
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateCreateClient", type="datetime", nullable=true)
@@ -50,7 +57,7 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Pannier", inversedBy="id")
+     * @ORM\ManyToMany(targetEntity="Pannier", inversedBy="user")
      * @ORM\JoinTable(name="creer",
      *   joinColumns={
      *     @ORM\JoinColumn(name="User", referencedColumnName="id")
@@ -65,7 +72,7 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Adresse", inversedBy="id")
+     * @ORM\ManyToMany(targetEntity="Adresse", inversedBy="user")
      * @ORM\JoinTable(name="habite",
      *   joinColumns={
      *     @ORM\JoinColumn(name="User", referencedColumnName="id")
@@ -77,7 +84,16 @@ class User extends BaseUser
      */
     protected $idadresse;
 
+    /**
+     * Constructor
+     */
+//    public function __construct()
+//    {
+//        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
+//        $this->idadresse = new \Doctrine\Common\Collections\ArrayCollection();
+//    }
     
+
     /**
      * Get id
      *
@@ -86,6 +102,85 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+    
+    /**
+     * Get roles
+     *
+     * @return array 
+     */
+    public function getRoles()
+    {
+        return $this->roles;
     }
 
     /**
@@ -245,4 +340,4 @@ class User extends BaseUser
     {
         return $this->idadresse;
     }
- }
+}

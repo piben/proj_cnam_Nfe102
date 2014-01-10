@@ -1,15 +1,9 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-    <h1>CathegorieProduit creation</h1>
+{% block body %}
 
+<h4>Ajout cat</h4>
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('cathegorieproduit') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+       {# <a href="{{ path('produit_new') }}">#}
 {% endblock %}

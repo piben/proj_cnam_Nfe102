@@ -19,7 +19,7 @@ class Pannier
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idpanier;
+    private $id;
 
     /**
      * @var \DateTime
@@ -54,7 +54,7 @@ class Pannier
      *
      * @ORM\ManyToMany(targetEntity="User", mappedBy="idpanier")
      */
-    private $idclient;
+    private $user;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -65,21 +65,11 @@ class Pannier
      *     @ORM\JoinColumn(name="idPanier", referencedColumnName="idPanier")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idproduit", referencedColumnName="idProduit")
+     *     @ORM\JoinColumn(name="idProduit", referencedColumnName="idProduit")
      *   }
      * )
      */
     private $idproduit;
-
-    /**
-     * @var \Transporteur
-     *
-     * @ORM\ManyToOne(targetEntity="Transporteur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idTransporteur", referencedColumnName="idTransporteur")
-     * })
-     */
-    private $idtransporteur;
 
     /**
      * @var \CmdFac
@@ -92,11 +82,21 @@ class Pannier
     private $idcmdfac;
 
     /**
+     * @var \Transporteur
+     *
+     * @ORM\ManyToOne(targetEntity="Transporteur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idTransporteur", referencedColumnName="idTransporteur")
+     * })
+     */
+    private $idtransporteur;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idclient = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idproduit = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -106,9 +106,9 @@ class Pannier
      *
      * @return integer 
      */
-    public function getIdpanier()
+    public function getId()
     {
-        return $this->idpanier;
+        return $this->id;
     }
 
     /**
@@ -204,36 +204,36 @@ class Pannier
     }
 
     /**
-     * Add idclient
+     * Add user
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Client $idclient
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
      * @return Pannier
      */
-    public function addIdclient(\Nfe102\Bundle\RestoBundle\Entity\Client $idclient)
+    public function addUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
     {
-        $this->idclient[] = $idclient;
+        $this->user[] = $user;
     
         return $this;
     }
 
     /**
-     * Remove idclient
+     * Remove user
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Client $idclient
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
      */
-    public function removeIdclient(\Nfe102\Bundle\RestoBundle\Entity\Client $idclient)
+    public function removeUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
     {
-        $this->idclient->removeElement($idclient);
+        $this->user->removeElement($user);
     }
 
     /**
-     * Get idclient
+     * Get user
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getIdclient()
+    public function getUser()
     {
-        return $this->idclient;
+        return $this->user;
     }
 
     /**
@@ -270,29 +270,6 @@ class Pannier
     }
 
     /**
-     * Set idtransporteur
-     *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Transporteur $idtransporteur
-     * @return Pannier
-     */
-    public function setIdtransporteur(\Nfe102\Bundle\RestoBundle\Entity\Transporteur $idtransporteur = null)
-    {
-        $this->idtransporteur = $idtransporteur;
-    
-        return $this;
-    }
-
-    /**
-     * Get idtransporteur
-     *
-     * @return \Nfe102\Bundle\RestoBundle\Entity\Transporteur 
-     */
-    public function getIdtransporteur()
-    {
-        return $this->idtransporteur;
-    }
-
-    /**
      * Set idcmdfac
      *
      * @param \Nfe102\Bundle\RestoBundle\Entity\CmdFac $idcmdfac
@@ -313,5 +290,28 @@ class Pannier
     public function getIdcmdfac()
     {
         return $this->idcmdfac;
+    }
+
+    /**
+     * Set idtransporteur
+     *
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Transporteur $idtransporteur
+     * @return Pannier
+     */
+    public function setIdtransporteur(\Nfe102\Bundle\RestoBundle\Entity\Transporteur $idtransporteur = null)
+    {
+        $this->idtransporteur = $idtransporteur;
+    
+        return $this;
+    }
+
+    /**
+     * Get idtransporteur
+     *
+     * @return \Nfe102\Bundle\RestoBundle\Entity\Transporteur 
+     */
+    public function getIdtransporteur()
+    {
+        return $this->idtransporteur;
     }
 }

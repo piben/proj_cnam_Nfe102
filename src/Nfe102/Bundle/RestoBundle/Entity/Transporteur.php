@@ -19,7 +19,7 @@ class Transporteur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idtransporteur;
+    private $id;
 
     /**
      * @var string
@@ -56,9 +56,9 @@ class Transporteur
      *
      * @return integer 
      */
-    public function getIdtransporteur()
+    public function getId()
     {
-        return $this->idtransporteur;
+        return $this->id;
     }
 
     /**

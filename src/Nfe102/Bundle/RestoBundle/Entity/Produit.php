@@ -48,13 +48,6 @@ class Produit
      * @ORM\Column(name="Prix", type="string", length=45, nullable=true)
      */
     private $prix;
-    
-    /**
-     * @var bit
-     *
-     * @ORM\Column(name="dispo", type="string", length=7, nullable=true)
-     */
-    private $dispo;
 
     /**
      * @var \DateTime
@@ -71,11 +64,11 @@ class Produit
     private $dateupdateprod;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string
      *
-     * @ORM\ManyToMany(targetEntity="Pannier", mappedBy="idproduit")
+     * @ORM\Column(name="dispo", type="string", length=7, nullable=true)
      */
-    private $idpanier;
+    private $dispo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -93,12 +86,19 @@ class Produit
     private $idcathegorie;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Pannier", mappedBy="idproduit")
+     */
+    private $idpanier;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idcathegorie = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -107,9 +107,9 @@ class Produit
      *
      * @return integer 
      */
-    public function getIdproduit()
+    public function getId()
     {
-        return $this->idproduit;
+        return $this->id;
     }
 
     /**
@@ -251,36 +251,26 @@ class Produit
     }
 
     /**
-     * Add idpanier
+     * Set dispo
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
+     * @param string $dispo
      * @return Produit
      */
-    public function addIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
+    public function setDispo($dispo)
     {
-        $this->idpanier[] = $idpanier;
+        $this->dispo = $dispo;
     
         return $this;
     }
 
     /**
-     * Remove idpanier
+     * Get dispo
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
+     * @return string 
      */
-    public function removeIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
+    public function getDispo()
     {
-        $this->idpanier->removeElement($idpanier);
-    }
-
-    /**
-     * Get idpanier
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdpanier()
-    {
-        return $this->idpanier;
+        return $this->dispo;
     }
 
     /**
@@ -317,41 +307,35 @@ class Produit
     }
 
     /**
-     * Set dispo
+     * Add idpanier
      *
-     * @param string $dispo
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
      * @return Produit
      */
-    public function setDispo($dispo)
+    public function addIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
     {
-        $this->dispo = $dispo;
+        $this->idpanier[] = $idpanier;
     
         return $this;
     }
 
     /**
-     * Get dispo
+     * Remove idpanier
      *
-     * @return string 
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
      */
-    public function getDispo()
+    public function removeIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
     {
-        return $this->dispo;
+        $this->idpanier->removeElement($idpanier);
     }
 
     /**
-     * Get id
+     * Get idpanier
      *
-     * @return integer 
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getId()
+    public function getIdpanier()
     {
-        return $this->id;
+        return $this->idpanier;
     }
-    
-     public function __toString()
- {
-     return $this->idcathegorie;
- }
-    
 }

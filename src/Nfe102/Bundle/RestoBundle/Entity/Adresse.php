@@ -19,7 +19,7 @@ class Adresse
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idadresse;
+    private $id;
 
     /**
      * @var string
@@ -61,7 +61,7 @@ class Adresse
      *
      * @ORM\ManyToMany(targetEntity="User", mappedBy="idadresse")
      */
-    private $idclient;
+    private $user;
 
     /**
      * @var \CodesPostaux
@@ -78,7 +78,7 @@ class Adresse
      */
     public function __construct()
     {
-        $this->idclient = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -87,9 +87,9 @@ class Adresse
      *
      * @return integer 
      */
-    public function getIdadresse()
+    public function getId()
     {
-        return $this->idadresse;
+        return $this->id;
     }
 
     /**
@@ -208,36 +208,36 @@ class Adresse
     }
 
     /**
-     * Add idclient
+     * Add user
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Client $idclient
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
      * @return Adresse
      */
-    public function addIdclient(\Nfe102\Bundle\RestoBundle\Entity\Client $idclient)
+    public function addUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
     {
-        $this->idclient[] = $idclient;
+        $this->user[] = $user;
     
         return $this;
     }
 
     /**
-     * Remove idclient
+     * Remove user
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Client $idclient
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
      */
-    public function removeIdclient(\Nfe102\Bundle\RestoBundle\Entity\Client $idclient)
+    public function removeUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
     {
-        $this->idclient->removeElement($idclient);
+        $this->user->removeElement($user);
     }
 
     /**
-     * Get idclient
+     * Get user
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getIdclient()
+    public function getUser()
     {
-        return $this->idclient;
+        return $this->user;
     }
 
     /**

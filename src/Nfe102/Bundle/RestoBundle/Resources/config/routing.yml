@@ -10,14 +10,31 @@ nfe102_resto_cart:
     resource: "cartrouting.yml"
     prefix:   /cart
     
-nfe102_resto_admin:
-    resource: "adminrouting.yml"
-    prefix: /admin
     
 nfe102_resto_produit:
     resource: "routing/produit.yml"
     prefix: /produit
     
-nfe102_resto_produit:
+nfe102_resto_produit_cat:
     resource: "routing/cathegorieproduit.yml"
     prefix: /cathegorieproduit
+        
+Nfe102RestoBundle_pannier:
+    resource: "@Nfe102RestoBundle/Resources/config/routing/pannier.yml"
+    prefix:   /pannier
+    
+Nfe102RestoBundle_adresse:
+    resource: "@Nfe102RestoBundle/Resources/config/routing/adresse.yml"
+    prefix:   /adresse
+        
+Nfe102RestoBundle_cmdfac:
+    resource: "@Nfe102RestoBundle/Resources/config/routing/cmdfac.yml"
+    prefix:   /cmdfac
+        
+Nfe102RestoBundle_transporteur:
+    resource: "@Nfe102RestoBundle/Resources/config/routing/transporteur.yml"
+    prefix:   /transporteur
+        
+Nfe102RestoBundle_user:
+    resource: "@Nfe102RestoBundle/Resources/config/routing/user.yml"
+    prefix:   /user

@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Transporteur</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomtransporteur</th>
+                <td>{{ entity.nomtransporteur }}</td>
+            </tr>
+            <tr>
+                <th>Teltransporteur</th>
+                <td>{{ entity.teltransporteur }}</td>
+            </tr>
+            <tr>
+                <th>Datecreatetrans</th>
+                <td>{{ entity.datecreatetrans|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Dateupdatetrans</th>
+                <td>{{ entity.dateupdatetrans|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('transporteur') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('transporteur_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -5,37 +5,37 @@ namespace Nfe102\Bundle\RestoBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Nfe102\Bundle\RestoBundle\Entity\Produit;
-use Nfe102\Bundle\RestoBundle\Form\ProduitType;
+use Nfe102\Bundle\RestoBundle\Entity\User;
+use Nfe102\Bundle\RestoBundle\Form\UserType;
 
 /**
- * Produit controller.
+ * User controller.
  *
  */
-class ProduitController extends Controller
+class UserController extends Controller
 {
 
     /**
-     * Lists all Produit entities.
+     * Lists all User entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('Nfe102RestoBundle:Produit')->findAll();
+        $entities = $em->getRepository('Nfe102RestoBundle:User')->findAll();
 
-        return $this->render('Nfe102RestoBundle:Produit:index.html.twig', array(
+        return $this->render('Nfe102RestoBundle:User:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Produit entity.
+     * Creates a new User entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Produit();
+        $entity = new User();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,26 +44,26 @@ class ProduitController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('produit_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('user_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('Nfe102RestoBundle:Produit:new.html.twig', array(
+        return $this->render('Nfe102RestoBundle:User:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-    * Creates a form to create a Produit entity.
+    * Creates a form to create a User entity.
     *
-    * @param Produit $entity The entity
+    * @param User $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(Produit $entity)
+    private function createCreateForm(User $entity)
     {
-        $form = $this->createForm(new ProduitType(), $entity, array(
-            'action' => $this->generateUrl('produit_create'),
+        $form = $this->createForm(new UserType(), $entity, array(
+            'action' => $this->generateUrl('user_create'),
             'method' => 'POST',
         ));
 
@@ -73,59 +73,59 @@ class ProduitController extends Controller
     }
 
     /**
-     * Displays a form to create a new Produit entity.
+     * Displays a form to create a new User entity.
      *
      */
     public function newAction()
     {
-        $entity = new Produit();
+        $entity = new User();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('Nfe102RestoBundle:Produit:new.html.twig', array(
+        return $this->render('Nfe102RestoBundle:User:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Produit entity.
+     * Finds and displays a User entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Produit entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('Nfe102RestoBundle:Produit:show.html.twig', array(
+        return $this->render('Nfe102RestoBundle:User:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
-     * Displays a form to edit an existing Produit entity.
+     * Displays a form to edit an existing User entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Produit entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('Nfe102RestoBundle:Produit:edit.html.twig', array(
+        return $this->render('Nfe102RestoBundle:User:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -133,16 +133,16 @@ class ProduitController extends Controller
     }
 
     /**
-    * Creates a form to edit a Produit entity.
+    * Creates a form to edit a User entity.
     *
-    * @param Produit $entity The entity
+    * @param User $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Produit $entity)
+    private function createEditForm(User $entity)
     {
-        $form = $this->createForm(new ProduitType(), $entity, array(
-            'action' => $this->generateUrl('produit_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new UserType(), $entity, array(
+            'action' => $this->generateUrl('user_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -151,17 +151,17 @@ class ProduitController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Produit entity.
+     * Edits an existing User entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:User')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Produit entity.');
+            throw $this->createNotFoundException('Unable to find User entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -171,17 +171,17 @@ class ProduitController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('produit_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('user_edit', array('id' => $id)));
         }
 
-        return $this->render('Nfe102RestoBundle:Produit:edit.html.twig', array(
+        return $this->render('Nfe102RestoBundle:User:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Produit entity.
+     * Deletes a User entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -191,21 +191,21 @@ class ProduitController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
+            $entity = $em->getRepository('Nfe102RestoBundle:User')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Produit entity.');
+                throw $this->createNotFoundException('Unable to find User entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('produit'));
+        return $this->redirect($this->generateUrl('user'));
     }
 
     /**
-     * Creates a form to delete a Produit entity by id.
+     * Creates a form to delete a User entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -214,7 +214,7 @@ class ProduitController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('produit_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('user_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

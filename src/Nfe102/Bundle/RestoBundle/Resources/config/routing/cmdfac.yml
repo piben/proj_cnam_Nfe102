@@ -1,0 +1,30 @@
+cmdfac:
+    pattern:  /
+    defaults: { _controller: "Nfe102RestoBundle:CmdFac:index" }
+
+cmdfac_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "Nfe102RestoBundle:CmdFac:show" }
+
+cmdfac_new:
+    pattern:  /new
+    defaults: { _controller: "Nfe102RestoBundle:CmdFac:new" }
+
+cmdfac_create:
+    pattern:  /create
+    defaults: { _controller: "Nfe102RestoBundle:CmdFac:create" }
+    requirements: { _method: post }
+
+cmdfac_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "Nfe102RestoBundle:CmdFac:edit" }
+
+cmdfac_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "Nfe102RestoBundle:CmdFac:update" }
+    requirements: { _method: post|put }
+
+cmdfac_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "Nfe102RestoBundle:CmdFac:delete" }
+    requirements: { _method: post|delete }

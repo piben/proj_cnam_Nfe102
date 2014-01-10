@@ -1,0 +1,30 @@
+pannier:
+    pattern:  /
+    defaults: { _controller: "Nfe102RestoBundle:Pannier:index" }
+
+pannier_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "Nfe102RestoBundle:Pannier:show" }
+
+pannier_new:
+    pattern:  /new
+    defaults: { _controller: "Nfe102RestoBundle:Pannier:new" }
+
+pannier_create:
+    pattern:  /create
+    defaults: { _controller: "Nfe102RestoBundle:Pannier:create" }
+    requirements: { _method: post }
+
+pannier_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "Nfe102RestoBundle:Pannier:edit" }
+
+pannier_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "Nfe102RestoBundle:Pannier:update" }
+    requirements: { _method: post|put }
+
+pannier_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "Nfe102RestoBundle:Pannier:delete" }
+    requirements: { _method: post|delete }

@@ -19,7 +19,7 @@ class CodesPostaux
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcodepostal;
+    private $id;
 
     /**
      * @var string
@@ -52,9 +52,9 @@ class CodesPostaux
      *
      * @return integer 
      */
-    public function getIdcodepostal()
+    public function getId()
     {
-        return $this->idcodepostal;
+        return $this->id;
     }
 
     /**
@@ -124,5 +124,9 @@ class CodesPostaux
     public function getIdadresse()
     {
         return $this->idadresse;
+    }
+    
+    public function __toString() {
+        return $this->codepostal;
     }
 }

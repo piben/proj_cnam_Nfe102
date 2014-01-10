@@ -19,7 +19,7 @@ class CmdFac
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcmdfac;
+    private $id;
 
     /**
      * @var integer
@@ -45,9 +45,9 @@ class CmdFac
      *
      * @return integer 
      */
-    public function getIdcmdfac()
+    public function getId()
     {
-        return $this->idcmdfac;
+        return $this->id;
     }
 
     /**

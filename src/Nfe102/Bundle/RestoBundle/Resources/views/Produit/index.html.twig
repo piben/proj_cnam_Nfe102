@@ -11,9 +11,9 @@
                 <th>Descrition</th>
                 <th>Image</th>
                 <th>Prix</th>
-                <th>Dispo</th>
                 <th>Datecreateprod</th>
                 <th>Dateupdateprod</th>
+                <th>Dispo</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,9 +25,9 @@
                 <td>{{ entity.descrition }}</td>
                 <td>{{ entity.image }}</td>
                 <td>{{ entity.prix }}</td>
-                <td>{{ entity.dispo }}</td>
                 <td>{% if entity.datecreateprod %}{{ entity.datecreateprod|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.dateupdateprod %}{{ entity.dateupdateprod|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.dispo }}</td>
                 <td>
                 <ul>
                     <li>
