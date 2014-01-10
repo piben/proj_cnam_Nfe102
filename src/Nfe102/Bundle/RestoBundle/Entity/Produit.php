@@ -338,4 +338,10 @@ class Produit
     {
         return $this->idcathegorie;
     }
+    
+    public function __toString() {
+    return $this->idcathegorie; 
+    }
+    
+    
 }

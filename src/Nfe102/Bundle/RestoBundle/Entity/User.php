@@ -3,6 +3,7 @@
 namespace Nfe102\Bundle\RestoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
@@ -10,58 +11,48 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="User")
  * @ORM\Entity
  */
-class User
+class User extends BaseUser
 {
+    
     /**
      * @var integer
      *
      * @ORM\Column(name="idClient", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="NomClient", type="string", length=45, nullable=true)
      */
-    private $nomclient;
+    protected $nomclient;
 
     /**
      * @var string
      *
      * @ORM\Column(name="PrenomClient", type="string", length=45, nullable=true)
      */
-    private $prenomclient;
+    protected $prenomclient;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="MailClient", type="string", length=45, nullable=true)
-     */
-    private $mailclient;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="PasswordClient", type="string", length=45, nullable=true)
-     */
-    private $passwordclient;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateCreateClient", type="datetime", nullable=true)
      */
-    private $datecreateclient;
+    protected $datecreateclient;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateUpdateClient", type="datetime", nullable=true)
      */
-    private $dateupdateclient;
+    protected $dateupdateclient;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -76,7 +67,7 @@ class User
      *   }
      * )
      */
-    private $idpanier;
+    protected $idpanier;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -91,17 +82,17 @@ class User
      *   }
      * )
      */
-    private $idadresse;
+    protected $idadresse;
 
     /**
      * Constructor
      */
-    public function __construct()
-    {
-        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idadresse = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+//    public function __construct()
+//    {
+//        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
+//        $this->idadresse = new \Doctrine\Common\Collections\ArrayCollection();
+//    }
+//    
 
     /**
      * Get idclient
@@ -159,51 +150,6 @@ class User
         return $this->prenomclient;
     }
 
-    /**
-     * Set mailclient
-     *
-     * @param string $mailclient
-     * @return User
-     */
-    public function setMailclient($mailclient)
-    {
-        $this->mailclient = $mailclient;
-    
-        return $this;
-    }
-
-    /**
-     * Get mailclient
-     *
-     * @return string 
-     */
-    public function getMailclient()
-    {
-        return $this->mailclient;
-    }
-
-    /**
-     * Set passwordclient
-     *
-     * @param string $passwordclient
-     * @return User
-     */
-    public function setPasswordclient($passwordclient)
-    {
-        $this->passwordclient = $passwordclient;
-    
-        return $this;
-    }
-
-    /**
-     * Get passwordclient
-     *
-     * @return string 
-     */
-    public function getPasswordclient()
-    {
-        return $this->passwordclient;
-    }
 
     /**
      * Set datecreateclient

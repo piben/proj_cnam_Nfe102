@@ -17,12 +17,12 @@ class UserType extends AbstractType
         $builder
             ->add('nomclient')
             ->add('prenomclient')
-            ->add('mailclient')
-            ->add('passwordclient')
-            ->add('datecreateclient')
-            ->add('dateupdateclient')
-            ->add('idpanier')
-            ->add('idadresse')
+           // ->add('mailclient')
+           // ->add('passwordclient')
+//            ->add('datecreateclient')
+//            ->add('dateupdateclient')
+//            ->add('idpanier')
+//            ->add('idadresse')
         ;
     }
     
