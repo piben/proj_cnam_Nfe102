@@ -35,16 +35,6 @@ class CodesPostaux
      */
     private $codepostal;
 
-    /**
-     * @var \Adresse
-     *
-     * @ORM\ManyToOne(targetEntity="Adresse")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idAdresse", referencedColumnName="idAdresse")
-     * })
-     */
-    private $idadresse;
-
 
 
     /**
@@ -100,33 +90,6 @@ class CodesPostaux
      */
     public function getCodepostal()
     {
-        return $this->codepostal;
-    }
-
-    /**
-     * Set idadresse
-     *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Adresse $idadresse
-     * @return CodesPostaux
-     */
-    public function setIdadresse(\Nfe102\Bundle\RestoBundle\Entity\Adresse $idadresse = null)
-    {
-        $this->idadresse = $idadresse;
-    
-        return $this;
-    }
-
-    /**
-     * Get idadresse
-     *
-     * @return \Nfe102\Bundle\RestoBundle\Entity\Adresse 
-     */
-    public function getIdadresse()
-    {
-        return $this->idadresse;
-    }
-    
-    public function __toString() {
         return $this->codepostal;
     }
 }

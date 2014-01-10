@@ -61,7 +61,7 @@ class Adresse
      *
      * @ORM\ManyToMany(targetEntity="User", mappedBy="idadresse")
      */
-    private $user;
+    private $idclient;
 
     /**
      * @var \CodesPostaux
@@ -78,7 +78,7 @@ class Adresse
      */
     public function __construct()
     {
-        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idclient = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -87,7 +87,7 @@ class Adresse
      *
      * @return integer 
      */
-    public function getId()
+    public function getIdadresse()
     {
         return $this->id;
     }
@@ -208,36 +208,36 @@ class Adresse
     }
 
     /**
-     * Add user
+     * Add idclient
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $idclient
      * @return Adresse
      */
-    public function addUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
+    public function addIdclient(\Nfe102\Bundle\RestoBundle\Entity\User $idclient)
     {
-        $this->user[] = $user;
+        $this->idclient[] = $idclient;
     
         return $this;
     }
 
     /**
-     * Remove user
+     * Remove idclient
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $idclient
      */
-    public function removeUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
+    public function removeIdclient(\Nfe102\Bundle\RestoBundle\Entity\User $idclient)
     {
-        $this->user->removeElement($user);
+        $this->idclient->removeElement($idclient);
     }
 
     /**
-     * Get user
+     * Get idclient
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getUser()
+    public function getIdclient()
     {
-        return $this->user;
+        return $this->idclient;
     }
 
     /**

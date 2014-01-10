@@ -54,7 +54,7 @@ class Pannier
      *
      * @ORM\ManyToMany(targetEntity="User", mappedBy="idpanier")
      */
-    private $user;
+    private $idclient;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -72,16 +72,6 @@ class Pannier
     private $idproduit;
 
     /**
-     * @var \CmdFac
-     *
-     * @ORM\ManyToOne(targetEntity="CmdFac")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idCmdFac", referencedColumnName="idCmdFac")
-     * })
-     */
-    private $idcmdfac;
-
-    /**
      * @var \Transporteur
      *
      * @ORM\ManyToOne(targetEntity="Transporteur")
@@ -92,11 +82,21 @@ class Pannier
     private $idtransporteur;
 
     /**
+     * @var \CmdFac
+     *
+     * @ORM\ManyToOne(targetEntity="CmdFac")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idCmdFac", referencedColumnName="idCmdFac")
+     * })
+     */
+    private $idcmdfac;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idclient = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idproduit = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -108,7 +108,7 @@ class Pannier
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idpanier;
     }
 
     /**
@@ -204,36 +204,36 @@ class Pannier
     }
 
     /**
-     * Add user
+     * Add idclient
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $idclient
      * @return Pannier
      */
-    public function addUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
+    public function addIdclient(\Nfe102\Bundle\RestoBundle\Entity\User $idclient)
     {
-        $this->user[] = $user;
+        $this->idclient[] = $idclient;
     
         return $this;
     }
 
     /**
-     * Remove user
+     * Remove idclient
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\User $user
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $idclient
      */
-    public function removeUser(\Nfe102\Bundle\RestoBundle\Entity\User $user)
+    public function removeIdclient(\Nfe102\Bundle\RestoBundle\Entity\User $idclient)
     {
-        $this->user->removeElement($user);
+        $this->idclient->removeElement($idclient);
     }
 
     /**
-     * Get user
+     * Get idclient
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getUser()
+    public function getIdclient()
     {
-        return $this->user;
+        return $this->idclient;
     }
 
     /**
@@ -270,29 +270,6 @@ class Pannier
     }
 
     /**
-     * Set idcmdfac
-     *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\CmdFac $idcmdfac
-     * @return Pannier
-     */
-    public function setIdcmdfac(\Nfe102\Bundle\RestoBundle\Entity\CmdFac $idcmdfac = null)
-    {
-        $this->idcmdfac = $idcmdfac;
-    
-        return $this;
-    }
-
-    /**
-     * Get idcmdfac
-     *
-     * @return \Nfe102\Bundle\RestoBundle\Entity\CmdFac 
-     */
-    public function getIdcmdfac()
-    {
-        return $this->idcmdfac;
-    }
-
-    /**
      * Set idtransporteur
      *
      * @param \Nfe102\Bundle\RestoBundle\Entity\Transporteur $idtransporteur
@@ -313,5 +290,28 @@ class Pannier
     public function getIdtransporteur()
     {
         return $this->idtransporteur;
+    }
+
+    /**
+     * Set idcmdfac
+     *
+     * @param \Nfe102\Bundle\RestoBundle\Entity\CmdFac $idcmdfac
+     * @return Pannier
+     */
+    public function setIdcmdfac(\Nfe102\Bundle\RestoBundle\Entity\CmdFac $idcmdfac = null)
+    {
+        $this->idcmdfac = $idcmdfac;
+    
+        return $this;
+    }
+
+    /**
+     * Get idcmdfac
+     *
+     * @return \Nfe102\Bundle\RestoBundle\Entity\CmdFac 
+     */
+    public function getIdcmdfac()
+    {
+        return $this->idcmdfac;
     }
 }

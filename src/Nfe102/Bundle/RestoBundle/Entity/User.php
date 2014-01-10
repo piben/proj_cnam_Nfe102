@@ -3,184 +3,114 @@
 namespace Nfe102\Bundle\RestoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
 
 /**
+ * User
+ *
+ * @ORM\Table(name="User")
  * @ORM\Entity
- * @ORM\Table(name="user")
  */
-class User extends BaseUser
+class User
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="idClient", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
-    
-        public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
+    private $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="NomClient", type="string", length=45, nullable=true)
      */
-    protected $nomclient;
+    private $nomclient;
 
     /**
      * @var string
      *
      * @ORM\Column(name="PrenomClient", type="string", length=45, nullable=true)
      */
-    protected $prenomclient;
+    private $prenomclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MailClient", type="string", length=45, nullable=true)
+     */
+    private $mailclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PasswordClient", type="string", length=45, nullable=true)
+     */
+    private $passwordclient;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateCreateClient", type="datetime", nullable=true)
      */
-    protected $datecreateclient;
+    private $datecreateclient;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateUpdateClient", type="datetime", nullable=true)
      */
-    protected $dateupdateclient;
+    private $dateupdateclient;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Pannier", inversedBy="user")
+     * @ORM\ManyToMany(targetEntity="Pannier", inversedBy="idclient")
      * @ORM\JoinTable(name="creer",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="User", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="idClient", referencedColumnName="idClient")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="idPanier", referencedColumnName="idPanier")
      *   }
      * )
      */
-    protected $idpanier;
+    private $idpanier;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Adresse", inversedBy="user")
+     * @ORM\ManyToMany(targetEntity="Adresse", inversedBy="idclient")
      * @ORM\JoinTable(name="habite",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="User", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="idClient", referencedColumnName="idClient")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="idAdresse", referencedColumnName="idAdresse")
      *   }
      * )
      */
-    protected $idadresse;
+    private $idadresse;
 
     /**
      * Constructor
      */
-//    public function __construct()
-//    {
-//        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
-//        $this->idadresse = new \Doctrine\Common\Collections\ArrayCollection();
-//    }
+    public function __construct()
+    {
+        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idadresse = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
 
     /**
-     * Get id
+     * Get idclient
      *
      * @return integer 
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return User
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-    
-    /**
-     * Get roles
-     *
-     * @return array 
-     */
-    public function getRoles()
-    {
-        return $this->roles;
     }
 
     /**
@@ -227,6 +157,52 @@ class User extends BaseUser
     public function getPrenomclient()
     {
         return $this->prenomclient;
+    }
+
+    /**
+     * Set mailclient
+     *
+     * @param string $mailclient
+     * @return User
+     */
+    public function setMailclient($mailclient)
+    {
+        $this->mailclient = $mailclient;
+    
+        return $this;
+    }
+
+    /**
+     * Get mailclient
+     *
+     * @return string 
+     */
+    public function getMailclient()
+    {
+        return $this->mailclient;
+    }
+
+    /**
+     * Set passwordclient
+     *
+     * @param string $passwordclient
+     * @return User
+     */
+    public function setPasswordclient($passwordclient)
+    {
+        $this->passwordclient = $passwordclient;
+    
+        return $this;
+    }
+
+    /**
+     * Get passwordclient
+     *
+     * @return string 
+     */
+    public function getPasswordclient()
+    {
+        return $this->passwordclient;
     }
 
     /**

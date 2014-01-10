@@ -8,10 +8,9 @@
     <field name="descrition" type="string" column="Descrition" length="45" nullable="true"/>
     <field name="image" type="string" column="Image" length="45" nullable="true"/>
     <field name="prix" type="string" column="Prix" length="45" nullable="true"/>
+    <field name="dispo" type="string" column="dispo" length="7" nullable="true"/>
     <field name="datecreateprod" type="datetime" column="DateCreateProd" nullable="true"/>
     <field name="dateupdateprod" type="datetime" column="DateUpdateProd" nullable="true"/>
-    <field name="dispo" type="string" column="dispo" length="7" nullable="true"/>
-    <many-to-many field="idpanier" target-entity="Pannier" mapped-by="idproduit"/>
     <many-to-many field="idcathegorie" target-entity="CathegorieProduit" inversed-by="idproduit">
       <join-table name="classe">
         <join-columns>
@@ -22,5 +21,6 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
+    <many-to-many field="idpanier" target-entity="Pannier" mapped-by="idproduit"/>
   </entity>
 </doctrine-mapping>

@@ -1,0 +1,30 @@
+codespostaux:
+    pattern:  /
+    defaults: { _controller: "Nfe102RestoBundle:CodesPostaux:index" }
+
+codespostaux_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "Nfe102RestoBundle:CodesPostaux:show" }
+
+codespostaux_new:
+    pattern:  /new
+    defaults: { _controller: "Nfe102RestoBundle:CodesPostaux:new" }
+
+codespostaux_create:
+    pattern:  /create
+    defaults: { _controller: "Nfe102RestoBundle:CodesPostaux:create" }
+    requirements: { _method: post }
+
+codespostaux_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "Nfe102RestoBundle:CodesPostaux:edit" }
+
+codespostaux_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "Nfe102RestoBundle:CodesPostaux:update" }
+    requirements: { _method: post|put }
+
+codespostaux_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "Nfe102RestoBundle:CodesPostaux:delete" }
+    requirements: { _method: post|delete }

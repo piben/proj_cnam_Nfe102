@@ -20,9 +20,9 @@ class ProduitType extends AbstractType
             ->add('image')
             ->add('prix')
             ->add('dispo')
-            //->add('datecreateprod')
-            //->add('dateupdateprod')
-            //->add('idpanier')
+            ->add('datecreateprod')
+            ->add('dateupdateprod')
+            ->add('idpanier')
             ->add('idcathegorie')
         ;
     }

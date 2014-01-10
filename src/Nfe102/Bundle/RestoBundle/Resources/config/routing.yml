@@ -38,3 +38,7 @@ Nfe102RestoBundle_transporteur:
 Nfe102RestoBundle_user:
     resource: "@Nfe102RestoBundle/Resources/config/routing/user.yml"
     prefix:   /user
+
+Nfe102RestoBundle_codespostaux:
+    resource: "@Nfe102RestoBundle/Resources/config/routing/codespostaux.yml"
+    prefix:   /codespostaux
