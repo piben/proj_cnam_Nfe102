@@ -30,14 +30,6 @@ Nfe102RestoBundle_adresse:
 Nfe102RestoBundle_cmdfac:
     resource: "@Nfe102RestoBundle/Resources/config/routing/cmdfac.yml"
     prefix:   /cmdfac
-        
-Nfe102RestoBundle_transporteur:
-    resource: "@Nfe102RestoBundle/Resources/config/routing/transporteur.yml"
-    prefix:   /transporteur
-        
-Nfe102RestoBundle_user:
-    resource: "@Nfe102RestoBundle/Resources/config/routing/user.yml"
-    prefix:   /user
 
 Nfe102RestoBundle_codespostaux:
     resource: "@Nfe102RestoBundle/Resources/config/routing/codespostaux.yml"
