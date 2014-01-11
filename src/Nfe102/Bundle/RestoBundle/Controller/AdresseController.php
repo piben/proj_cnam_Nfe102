@@ -66,6 +66,8 @@ class AdresseController extends Controller
     */
     private function createCreateForm(Adresse $entity)
     {
+        //$idclient  = $this->container->get('security.context')->getToken()->getUser()->getId();
+        
         $form = $this->createForm(new AdresseType(), $entity, array(
             'action' => $this->generateUrl('adresse_create'),
             'method' => 'POST',
