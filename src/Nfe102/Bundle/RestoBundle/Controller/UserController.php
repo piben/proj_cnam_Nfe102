@@ -36,6 +36,10 @@ class UserController extends Controller
     public function createAction(Request $request)
     {
         $entity = new User();
+        
+        $date = new \DateTime("now");     
+        $entity->setDatecreateuser($date);
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -159,6 +163,9 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('Nfe102RestoBundle:User')->find($id);
+        
+        $date = new \DateTime("now");     
+        $entity->setDateupdateuser($date);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');

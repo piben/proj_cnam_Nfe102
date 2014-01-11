@@ -36,6 +36,10 @@ class ProduitController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Produit();
+        
+        $date = new \DateTime("now");     
+        $entity->setDatecreateprod($date);
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -159,6 +163,9 @@ class ProduitController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
+        
+        $date = new \DateTime("now");     
+        $entity->setDateupdateprod($date);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Produit entity.');

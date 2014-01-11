@@ -73,13 +73,7 @@ class Adresse
      */
     private $idcodepostal;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idclient = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    
     
 
     /**
@@ -87,7 +81,7 @@ class Adresse
      *
      * @return integer 
      */
-    public function getIdadresse()
+    public function getId()
     {
         return $this->id;
     }

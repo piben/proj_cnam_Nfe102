@@ -92,4 +92,8 @@ class CodesPostaux
     {
         return $this->codepostal;
     }
+    
+    public function __toString() {
+        return $this->codepostal;
+    }
 }

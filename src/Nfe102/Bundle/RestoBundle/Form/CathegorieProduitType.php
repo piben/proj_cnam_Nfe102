@@ -16,8 +16,8 @@ class CathegorieProduitType extends AbstractType
     {
         $builder
             ->add('type')
-            ->add('datecreatecat')
-            ->add('dateupdatecat')
+            //->add('datecreatecat')
+            //->add('dateupdatecat')
           //  ->add('idproduit')
         ;
     }

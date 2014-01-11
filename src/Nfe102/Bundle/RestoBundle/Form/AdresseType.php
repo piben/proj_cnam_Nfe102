@@ -18,10 +18,10 @@ class AdresseType extends AbstractType
             ->add('adresse1')
             ->add('adresse2')
             ->add('typeadresse')
-            ->add('datecreateadresse')
-            ->add('dateupdateadresse')
-            ->add('idclient')
-            ->add('idcodepostal')
+            //->add('datecreateadresse')
+            //->add('dateupdateadresse')
+            //->add('idclient')
+            ->add('idcodepostal',null,array('label'=>'code postal'))
         ;
     }
     

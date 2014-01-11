@@ -36,6 +36,10 @@ class AdresseController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Adresse();
+        
+        $date = new \DateTime("now");     
+        $entity->setDatecreateadresse($date);
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -159,6 +163,9 @@ class AdresseController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('Nfe102RestoBundle:Adresse')->find($id);
+        
+        $date = new \DateTime("now");     
+        $entity->setDateupdateadresse($date);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Adresse entity.');
