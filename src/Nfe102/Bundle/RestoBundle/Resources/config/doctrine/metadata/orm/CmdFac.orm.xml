@@ -5,7 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="adressIdFac" type="integer" column="Adress_id_Fac" nullable="true"/>
-    <many-to-one field="idpanier" target-entity="Pannier">
+    <many-to-one field="idpanier" target-entity="Panier">
       <join-columns>
         <join-column name="idPanier" referenced-column-name="idPanier"/>
       </join-columns>

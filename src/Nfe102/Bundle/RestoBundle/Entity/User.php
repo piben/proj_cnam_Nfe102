@@ -57,7 +57,7 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Pannier", inversedBy="idclient")
+     * @ORM\ManyToMany(targetEntity="Panier", inversedBy="idclient")
      * @ORM\JoinTable(name="creer",
      *   joinColumns={
      *     @ORM\JoinColumn(name="idClient", referencedColumnName="idClient")
@@ -200,10 +200,10 @@ class User extends BaseUser
     /**
      * Add idpanier
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier
      * @return User
      */
-    public function addIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
+    public function addIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier)
     {
         $this->idpanier[] = $idpanier;
     
@@ -213,9 +213,9 @@ class User extends BaseUser
     /**
      * Remove idpanier
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier
      */
-    public function removeIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
+    public function removeIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier)
     {
         $this->idpanier->removeElement($idpanier);
     }

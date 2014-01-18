@@ -5,37 +5,37 @@ namespace Nfe102\Bundle\RestoBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Nfe102\Bundle\RestoBundle\Entity\Pannier;
-use Nfe102\Bundle\RestoBundle\Form\PannierType;
+use Nfe102\Bundle\RestoBundle\Entity\Panier;
+use Nfe102\Bundle\RestoBundle\Form\PanierType;
 
 /**
- * Pannier controller.
+ * Panier controller.
  *
  */
-class PannierController extends Controller
+class PanierController extends Controller
 {
 
     /**
-     * Lists all Pannier entities.
+     * Lists all Panier entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('Nfe102RestoBundle:Pannier')->findAll();
+        $entities = $em->getRepository('Nfe102RestoBundle:Panier')->findAll();
 
-        return $this->render('Nfe102RestoBundle:Pannier:index.html.twig', array(
+        return $this->render('Nfe102RestoBundle:Panier:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Pannier entity.
+     * Creates a new Panier entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Pannier();
+        $entity = new Panier();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -44,26 +44,26 @@ class PannierController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('pannier_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('panier_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('Nfe102RestoBundle:Pannier:new.html.twig', array(
+        return $this->render('Nfe102RestoBundle:Panier:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-    * Creates a form to create a Pannier entity.
+    * Creates a form to create a Panier entity.
     *
-    * @param Pannier $entity The entity
+    * @param Panier $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(Pannier $entity)
+    private function createCreateForm(Panier $entity)
     {
-        $form = $this->createForm(new PannierType(), $entity, array(
-            'action' => $this->generateUrl('pannier_create'),
+        $form = $this->createForm(new PanierType(), $entity, array(
+            'action' => $this->generateUrl('panier_create'),
             'method' => 'POST',
         ));
 
@@ -73,59 +73,59 @@ class PannierController extends Controller
     }
 
     /**
-     * Displays a form to create a new Pannier entity.
+     * Displays a form to create a new Panier entity.
      *
      */
     public function newAction()
     {
-        $entity = new Pannier();
+        $entity = new Panier();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('Nfe102RestoBundle:Pannier:new.html.twig', array(
+        return $this->render('Nfe102RestoBundle:Panier:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Pannier entity.
+     * Finds and displays a Panier entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:Pannier')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:Panier')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Pannier entity.');
+            throw $this->createNotFoundException('Unable to find Panier entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('Nfe102RestoBundle:Pannier:show.html.twig', array(
+        return $this->render('Nfe102RestoBundle:Panier:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
-     * Displays a form to edit an existing Pannier entity.
+     * Displays a form to edit an existing Panier entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:Pannier')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:Panier')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Pannier entity.');
+            throw $this->createNotFoundException('Unable to find Panier entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('Nfe102RestoBundle:Pannier:edit.html.twig', array(
+        return $this->render('Nfe102RestoBundle:Panier:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -133,16 +133,16 @@ class PannierController extends Controller
     }
 
     /**
-    * Creates a form to edit a Pannier entity.
+    * Creates a form to edit a Panier entity.
     *
-    * @param Pannier $entity The entity
+    * @param Panier $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Pannier $entity)
+    private function createEditForm(Panier $entity)
     {
-        $form = $this->createForm(new PannierType(), $entity, array(
-            'action' => $this->generateUrl('pannier_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new PanierType(), $entity, array(
+            'action' => $this->generateUrl('panier_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -151,17 +151,17 @@ class PannierController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Pannier entity.
+     * Edits an existing Panier entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:Pannier')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:Panier')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Pannier entity.');
+            throw $this->createNotFoundException('Unable to find Panier entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -171,17 +171,17 @@ class PannierController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('pannier_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('panier_edit', array('id' => $id)));
         }
 
-        return $this->render('Nfe102RestoBundle:Pannier:edit.html.twig', array(
+        return $this->render('Nfe102RestoBundle:Panier:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Pannier entity.
+     * Deletes a Panier entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -191,21 +191,21 @@ class PannierController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('Nfe102RestoBundle:Pannier')->find($id);
+            $entity = $em->getRepository('Nfe102RestoBundle:Panier')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Pannier entity.');
+                throw $this->createNotFoundException('Unable to find Panier entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('pannier'));
+        return $this->redirect($this->generateUrl('panier'));
     }
 
     /**
-     * Creates a form to delete a Pannier entity by id.
+     * Creates a form to delete a Panier entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -214,7 +214,7 @@ class PannierController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('pannier_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('panier_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

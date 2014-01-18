@@ -5,12 +5,12 @@ namespace Nfe102\Bundle\RestoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Pannier
+ * Panier
  *
- * @ORM\Table(name="Pannier")
+ * @ORM\Table(name="Panier")
  * @ORM\Entity
  */
-class Pannier
+class Panier
 {
     /**
      * @var integer
@@ -115,7 +115,7 @@ class Pannier
      * Set datepanier
      *
      * @param \DateTime $datepanier
-     * @return Pannier
+     * @return Panier
      */
     public function setDatepanier($datepanier)
     {
@@ -138,7 +138,7 @@ class Pannier
      * Set status
      *
      * @param integer $status
-     * @return Pannier
+     * @return Panier
      */
     public function setStatus($status)
     {
@@ -161,7 +161,7 @@ class Pannier
      * Set datecreatepanier
      *
      * @param \DateTime $datecreatepanier
-     * @return Pannier
+     * @return Panier
      */
     public function setDatecreatepanier($datecreatepanier)
     {
@@ -184,7 +184,7 @@ class Pannier
      * Set dateupdatepanier
      *
      * @param \DateTime $dateupdatepanier
-     * @return Pannier
+     * @return Panier
      */
     public function setDateupdatepanier($dateupdatepanier)
     {
@@ -207,7 +207,7 @@ class Pannier
      * Add idclient
      *
      * @param \Nfe102\Bundle\RestoBundle\Entity\User $idclient
-     * @return Pannier
+     * @return Panier
      */
     public function addIdclient(\Nfe102\Bundle\RestoBundle\Entity\User $idclient)
     {
@@ -240,7 +240,7 @@ class Pannier
      * Add idproduit
      *
      * @param \Nfe102\Bundle\RestoBundle\Entity\Produit $idproduit
-     * @return Pannier
+     * @return Panier
      */
     public function addIdproduit(\Nfe102\Bundle\RestoBundle\Entity\Produit $idproduit)
     {
@@ -273,7 +273,7 @@ class Pannier
      * Set idtransporteur
      *
      * @param \Nfe102\Bundle\RestoBundle\Entity\Transporteur $idtransporteur
-     * @return Pannier
+     * @return Panier
      */
     public function setIdtransporteur(\Nfe102\Bundle\RestoBundle\Entity\Transporteur $idtransporteur = null)
     {
@@ -296,7 +296,7 @@ class Pannier
      * Set idcmdfac
      *
      * @param \Nfe102\Bundle\RestoBundle\Entity\CmdFac $idcmdfac
-     * @return Pannier
+     * @return Panier
      */
     public function setIdcmdfac(\Nfe102\Bundle\RestoBundle\Entity\CmdFac $idcmdfac = null)
     {

@@ -20,7 +20,7 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="idpanier" target-entity="Pannier" inversed-by="idclient">
+    <many-to-many field="idpanier" target-entity="Panier" inversed-by="idclient">
       <join-table name="creer">
         <join-columns>
           <join-column name="idClient" referenced-column-name="idClient"/>

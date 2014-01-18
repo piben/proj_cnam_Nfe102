@@ -21,6 +21,6 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
-    <many-to-many field="idpanier" target-entity="Pannier" mapped-by="idproduit"/>
+    <many-to-many field="idpanier" target-entity="Panier" mapped-by="idproduit"/>
   </entity>
 </doctrine-mapping>

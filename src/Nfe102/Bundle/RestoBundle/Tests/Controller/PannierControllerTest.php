@@ -4,7 +4,7 @@ namespace Nfe102\Bundle\RestoBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class PannierControllerTest extends WebTestCase
+class PanierControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class PannierControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/pannier/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /pannier/");
+        $crawler = $client->request('GET', '/panier/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /panier/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'nfe102_bundle_restobundle_panniertype[field_name]'  => 'Test',
+            'nfe102_bundle_restobundle_paniertype[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class PannierControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Edit')->form(array(
-            'nfe102_bundle_restobundle_panniertype[field_name]'  => 'Foo',
+            'nfe102_bundle_restobundle_paniertype[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

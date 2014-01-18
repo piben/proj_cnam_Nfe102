@@ -19,9 +19,9 @@ nfe102_resto_produit_cat:
     resource: "routing/cathegorieproduit.yml"
     prefix: /cathegorieproduit
         
-Nfe102RestoBundle_pannier:
-    resource: "@Nfe102RestoBundle/Resources/config/routing/pannier.yml"
-    prefix:   /pannier
+Nfe102RestoBundle_panier:
+    resource: "@Nfe102RestoBundle/Resources/config/routing/panier.yml"
+    prefix:   /panier
     
 Nfe102RestoBundle_adresse:
     resource: "@Nfe102RestoBundle/Resources/config/routing/adresse.yml"

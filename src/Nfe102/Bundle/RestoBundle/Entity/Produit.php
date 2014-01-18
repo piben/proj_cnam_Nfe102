@@ -73,7 +73,7 @@ class Produit
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Pannier", mappedBy="idproduit")
+     * @ORM\ManyToMany(targetEntity="Panier", mappedBy="idproduit")
      */
     private $idpanier;
 
@@ -276,10 +276,10 @@ class Produit
     /**
      * Add idpanier
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier
      * @return Produit
      */
-    public function addIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
+    public function addIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier)
     {
         $this->idpanier[] = $idpanier;
     
@@ -289,9 +289,9 @@ class Produit
     /**
      * Remove idpanier
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier
      */
-    public function removeIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier)
+    public function removeIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier)
     {
         $this->idpanier->removeElement($idpanier);
     }

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PannierType extends AbstractType
+class PanierType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -32,7 +32,7 @@ class PannierType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Nfe102\Bundle\RestoBundle\Entity\Pannier'
+            'data_class' => 'Nfe102\Bundle\RestoBundle\Entity\Panier'
         ));
     }
 
@@ -41,6 +41,6 @@ class PannierType extends AbstractType
      */
     public function getName()
     {
-        return 'nfe102_bundle_restobundle_pannier';
+        return 'nfe102_bundle_restobundle_panier';
     }
 }

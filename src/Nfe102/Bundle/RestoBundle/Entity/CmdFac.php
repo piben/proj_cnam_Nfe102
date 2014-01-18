@@ -29,9 +29,9 @@ class CmdFac
     private $adressIdFac;
 
     /**
-     * @var \Pannier
+     * @var \Panier
      *
-     * @ORM\ManyToOne(targetEntity="Pannier")
+     * @ORM\ManyToOne(targetEntity="Panier")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idPanier", referencedColumnName="idPanier")
      * })
@@ -76,10 +76,10 @@ class CmdFac
     /**
      * Set idpanier
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier
+     * @param \Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier
      * @return CmdFac
      */
-    public function setIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Pannier $idpanier = null)
+    public function setIdpanier(\Nfe102\Bundle\RestoBundle\Entity\Panier $idpanier = null)
     {
         $this->idpanier = $idpanier;
     
@@ -89,7 +89,7 @@ class CmdFac
     /**
      * Get idpanier
      *
-     * @return \Nfe102\Bundle\RestoBundle\Entity\Pannier 
+     * @return \Nfe102\Bundle\RestoBundle\Entity\Panier 
      */
     public function getIdpanier()
     {

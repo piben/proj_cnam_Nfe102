@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Pannier list</h1>
+    <h1>Panier list</h1>
 
     <table class="records_list">
         <thead>
@@ -17,7 +17,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('pannier_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('panier_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{% if entity.datepanier %}{{ entity.datepanier|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.status }}</td>
                 <td>{% if entity.datecreatepanier %}{{ entity.datecreatepanier|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -25,10 +25,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('pannier_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('panier_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('pannier_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('panier_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -39,7 +39,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('pannier_new') }}">
+            <a href="{{ path('panier_new') }}">
                 Create a new entry
             </a>
         </li>
