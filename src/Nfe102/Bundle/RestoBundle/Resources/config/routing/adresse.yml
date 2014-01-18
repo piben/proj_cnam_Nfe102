@@ -7,7 +7,7 @@ adresse_show:
     defaults: { _controller: "Nfe102RestoBundle:Adresse:show" }
 
 adresse_new:
-    pattern:  /{username}/new
+    pattern:  /new
     defaults: { _controller: "Nfe102RestoBundle:Adresse:new" }
 
 adresse_create:

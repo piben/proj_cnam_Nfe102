@@ -19,7 +19,7 @@ class Pannier
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idpanier;
+    private $id;
 
     /**
      * @var \DateTime
@@ -65,7 +65,7 @@ class Pannier
      *     @ORM\JoinColumn(name="idPanier", referencedColumnName="idPanier")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idproduit", referencedColumnName="idProduit")
+     *     @ORM\JoinColumn(name="idProduit", referencedColumnName="idProduit")
      *   }
      * )
      */
@@ -106,7 +106,7 @@ class Pannier
      *
      * @return integer 
      */
-    public function getIdpanier()
+    public function getId()
     {
         return $this->idpanier;
     }
@@ -206,10 +206,10 @@ class Pannier
     /**
      * Add idclient
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Client $idclient
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $idclient
      * @return Pannier
      */
-    public function addIdclient(\Nfe102\Bundle\RestoBundle\Entity\Client $idclient)
+    public function addIdclient(\Nfe102\Bundle\RestoBundle\Entity\User $idclient)
     {
         $this->idclient[] = $idclient;
     
@@ -219,9 +219,9 @@ class Pannier
     /**
      * Remove idclient
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\Client $idclient
+     * @param \Nfe102\Bundle\RestoBundle\Entity\User $idclient
      */
-    public function removeIdclient(\Nfe102\Bundle\RestoBundle\Entity\Client $idclient)
+    public function removeIdclient(\Nfe102\Bundle\RestoBundle\Entity\User $idclient)
     {
         $this->idclient->removeElement($idclient);
     }

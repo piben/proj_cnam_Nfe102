@@ -1,23 +1,28 @@
 <?php
-// src/Nfe102/Bundle/RestoBundle/Entity;
 
 namespace Nfe102\Bundle\RestoBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
+ * User
+ *
+ * @ORM\Table(name="User")
  * @ORM\Entity
- * @ORM\Table(name="user")
  */
 class User extends BaseUser
 {
+    
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idClient", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
 
     /**
      * @var string
@@ -32,8 +37,10 @@ class User extends BaseUser
      * @ORM\Column(name="PrenomClient", type="string", length=45, nullable=true)
      */
     protected $prenomclient;
-    
-/**
+
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateCreateClient", type="datetime", nullable=true)
@@ -50,10 +57,10 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Pannier", inversedBy="id")
+     * @ORM\ManyToMany(targetEntity="Pannier", inversedBy="idclient")
      * @ORM\JoinTable(name="creer",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="User", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="idClient", referencedColumnName="idClient")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="idPanier", referencedColumnName="idPanier")
@@ -65,10 +72,10 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Adresse", inversedBy="id")
+     * @ORM\ManyToMany(targetEntity="Adresse", inversedBy="idclient")
      * @ORM\JoinTable(name="habite",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="idClient", referencedColumnName="idClient")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="idAdresse", referencedColumnName="idAdresse")
@@ -77,9 +84,18 @@ class User extends BaseUser
      */
     protected $idadresse;
 
-    
     /**
-     * Get id
+     * Constructor
+     */
+//    public function __construct()
+//    {
+//        $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
+//        $this->idadresse = new \Doctrine\Common\Collections\ArrayCollection();
+//    }
+//    
+
+    /**
+     * Get idclient
      *
      * @return integer 
      */
@@ -133,6 +149,7 @@ class User extends BaseUser
     {
         return $this->prenomclient;
     }
+
 
     /**
      * Set datecreateclient
@@ -244,6 +261,5 @@ class User extends BaseUser
     public function getIdadresse()
     {
         return $this->idadresse;
-    }   
-   
- }
+    }
+}

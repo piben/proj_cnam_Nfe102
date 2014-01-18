@@ -8,20 +8,27 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class AdresseType extends AbstractType
 {
+    /*private $idclient;
+    
+    function __construct($idclient) {
+        
+        $this->idclient = $idclient;
+    }*/
         /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        
         $builder
             ->add('adresse1')
             ->add('adresse2')
             ->add('typeadresse')
             //->add('datecreateadresse')
             //->add('dateupdateadresse')
-            //->add('iduser')
-            ->add('idcodepostal')
+            //->add('idclient','hidden',array('data'=>$this->idclient))
+            ->add('idcodepostal',null,array('label'=>'code postal'))
         ;
     }
     

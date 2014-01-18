@@ -17,7 +17,7 @@ class CartController extends Controller {
     public function addToCartAction(Request $request) {
 
         if ($request->isXmlHttpRequest()) {
-
+// TODO insert
             $idprod = $request->get('idprod');
 
             $session = $this->container->get('session');

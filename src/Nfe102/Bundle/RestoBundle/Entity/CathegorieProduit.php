@@ -63,9 +63,9 @@ class CathegorieProduit
      *
      * @return integer 
      */
-    public function getIdcathegorie()
+    public function getId()
     {
-        return $this->idcathegorie;
+        return $this->id;
     }
 
     /**
@@ -170,19 +170,7 @@ class CathegorieProduit
         return $this->idproduit;
     }
     
-    public function __toString()
-    {
-        return $this->type;
-    }
-    
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
+    public function __toString() {
+    return $this->type; 
     }
 }

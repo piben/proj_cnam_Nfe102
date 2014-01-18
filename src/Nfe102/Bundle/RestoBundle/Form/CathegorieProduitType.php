@@ -18,10 +18,10 @@ class CathegorieProduitType extends AbstractType
             ->add('type')
             //->add('datecreatecat')
             //->add('dateupdatecat')
-            //->add('idproduit')
+          //  ->add('idproduit')
         ;
     }
-    
+  
     /**
      * @param OptionsResolverInterface $resolver
      */

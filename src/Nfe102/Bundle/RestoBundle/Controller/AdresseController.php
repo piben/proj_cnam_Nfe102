@@ -36,6 +36,10 @@ class AdresseController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Adresse();
+        
+        $date = new \DateTime("now");     
+        $entity->setDatecreateadresse($date);
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -62,6 +66,8 @@ class AdresseController extends Controller
     */
     private function createCreateForm(Adresse $entity)
     {
+        //$idclient  = $this->container->get('security.context')->getToken()->getUser()->getId();
+        
         $form = $this->createForm(new AdresseType(), $entity, array(
             'action' => $this->generateUrl('adresse_create'),
             'method' => 'POST',
@@ -76,15 +82,14 @@ class AdresseController extends Controller
      * Displays a form to create a new Adresse entity.
      *
      */
-    public function newAction($username)
+    public function newAction()
     {
         $entity = new Adresse();
-        $form   = $this->createCreateForm($entity,$username);
+        $form   = $this->createCreateForm($entity);
 
         return $this->render('Nfe102RestoBundle:Adresse:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-           
         ));
     }
 
@@ -160,6 +165,9 @@ class AdresseController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('Nfe102RestoBundle:Adresse')->find($id);
+        
+        $date = new \DateTime("now");     
+        $entity->setDateupdateadresse($date);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Adresse entity.');

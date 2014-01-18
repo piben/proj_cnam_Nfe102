@@ -71,7 +71,7 @@ class ProduitController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Créer Produit'));
+        $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }

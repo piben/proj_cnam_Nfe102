@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="User" table="User">
+    <id name="idclient" type="integer" column="idClient">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomclient" type="string" column="NomClient" length="45" nullable="true"/>
+    <field name="prenomclient" type="string" column="PrenomClient" length="45" nullable="true"/>
+    <field name="mailclient" type="string" column="MailClient" length="45" nullable="true"/>
+    <field name="passwordclient" type="string" column="PasswordClient" length="45" nullable="true"/>
+    <field name="datecreateclient" type="datetime" column="DateCreateClient" nullable="true"/>
+    <field name="dateupdateclient" type="datetime" column="DateUpdateClient" nullable="true"/>
+    <many-to-many field="idadresse" target-entity="Adresse" inversed-by="idclient">
+      <join-table name="habite">
+        <join-columns>
+          <join-column name="idClient" referenced-column-name="idClient"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="idAdresse" referenced-column-name="idAdresse"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="idpanier" target-entity="Pannier" inversed-by="idclient">
+      <join-table name="creer">
+        <join-columns>
+          <join-column name="idClient" referenced-column-name="idClient"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="idPanier" referenced-column-name="idPanier"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

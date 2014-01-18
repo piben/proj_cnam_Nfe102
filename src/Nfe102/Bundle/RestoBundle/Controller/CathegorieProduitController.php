@@ -37,7 +37,7 @@ class CathegorieProduitController extends Controller
     {
         $entity = new CathegorieProduit();
         
-        $date = new \DateTime("now");
+        $date = new \DateTime("now");     
         $entity->setDatecreatecat($date);
         
         $form = $this->createCreateForm($entity);
@@ -165,7 +165,7 @@ class CathegorieProduitController extends Controller
         $entity = $em->getRepository('Nfe102RestoBundle:CathegorieProduit')->find($id);
         
         $date = new \DateTime("now");     
-        $entity->setDatecreatecat($date);
+        $entity->setDateupdatecat($date);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find CathegorieProduit entity.');

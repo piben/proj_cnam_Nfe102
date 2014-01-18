@@ -6,10 +6,5 @@
     </id>
     <field name="nomville" type="string" column="NomVille" length="45" nullable="true"/>
     <field name="codepostal" type="string" column="CodePostal" length="20" nullable="true"/>
-    <many-to-one field="idadresse" target-entity="Adresse">
-      <join-columns>
-        <join-column name="idAdresse" referenced-column-name="idAdresse"/>
-      </join-columns>
-    </many-to-one>
   </entity>
 </doctrine-mapping>
