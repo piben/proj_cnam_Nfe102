@@ -8,6 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Nfe102\Bundle\RestoBundle\Entity\Produit;
 use Nfe102\Bundle\RestoBundle\Form\ProduitType;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\HttpFoundation\Response;
 /**
  * Produit controller.
  *
@@ -29,6 +34,33 @@ class ProduitController extends Controller
             'entities' => $entities,
         ));
     }
+    
+    /**
+     * Lists json product
+     */
+    public function jsonshowAction() {
+        
+        
+    $em = $this->getDoctrine()->getManager();
+    $query = $em->createQuery(
+    'SELECT p.id,p.nom,p.description,p.image,p.prix
+     FROM Nfe102RestoBundle:Produit p
+     WHERE p.dispo LIKE :dispo
+     ORDER BY p.prix ASC'
+     )->setParameter('dispo', '1111111');
+
+        $entities = $query->getResult();
+
+
+        $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new
+                    JsonEncoder()));
+        $json = $serializer->serialize($entities, 'json');
+
+        return new Response($json, 200, array('Content-Type' => 'application/json'));
+  
+    }
+
+
     /**
      * Creates a new Produit entity.
      *

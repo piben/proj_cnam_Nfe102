@@ -4,37 +4,47 @@ namespace Nfe102\Bundle\RestoBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Nfe102\Bundle\RestoBundle\Entity\CodesPostaux;
 use Nfe102\Bundle\RestoBundle\Form\CodesPostauxType;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * CodesPostaux controller.
  *
  */
-class CodesPostauxController extends Controller
-{
+class CodesPostauxController extends Controller {
 
     /**
      * Lists all CodesPostaux entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('Nfe102RestoBundle:CodesPostaux')->findAll();
+        $query = $em->createQuery("SELECT u FROM Nfe102RestoBundle:CodesPostaux u WHERE u.codepostal LIKE :code")
+                ->setParameter('code', '42%');
 
-        return $this->render('Nfe102RestoBundle:CodesPostaux:index.html.twig', array(
-            'entities' => $entities,
-        ));
+        $entities = $query->getResult();
+
+
+        $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new
+                    JsonEncoder()));
+        $json = $serializer->serialize($entities, 'json');
+
+        return new Response($json, 200, array('Content-Type' => 'application/json'));
+//        return $this->render('Nfe102RestoBundle:CodesPostaux:index.html.twig', array(
+//                    'entities' => $entities,
+//                ));
     }
+
     /**
      * Creates a new CodesPostaux entity.
      *
      */
-    public function createAction(Request $request)
-    {
+    public function createAction(Request $request) {
         $entity = new CodesPostaux();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -48,24 +58,23 @@ class CodesPostauxController extends Controller
         }
 
         return $this->render('Nfe102RestoBundle:CodesPostaux:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+                    'entity' => $entity,
+                    'form' => $form->createView(),
+                ));
     }
 
     /**
-    * Creates a form to create a CodesPostaux entity.
-    *
-    * @param CodesPostaux $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(CodesPostaux $entity)
-    {
+     * Creates a form to create a CodesPostaux entity.
+     *
+     * @param CodesPostaux $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createCreateForm(CodesPostaux $entity) {
         $form = $this->createForm(new CodesPostauxType(), $entity, array(
             'action' => $this->generateUrl('codespostaux_create'),
             'method' => 'POST',
-        ));
+                ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
 
@@ -76,23 +85,21 @@ class CodesPostauxController extends Controller
      * Displays a form to create a new CodesPostaux entity.
      *
      */
-    public function newAction()
-    {
+    public function newAction() {
         $entity = new CodesPostaux();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('Nfe102RestoBundle:CodesPostaux:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+                    'entity' => $entity,
+                    'form' => $form->createView(),
+                ));
     }
 
     /**
      * Finds and displays a CodesPostaux entity.
      *
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('Nfe102RestoBundle:CodesPostaux')->find($id);
@@ -104,16 +111,15 @@ class CodesPostauxController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('Nfe102RestoBundle:CodesPostaux:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+                    'entity' => $entity,
+                    'delete_form' => $deleteForm->createView(),));
     }
 
     /**
      * Displays a form to edit an existing CodesPostaux entity.
      *
      */
-    public function editAction($id)
-    {
+    public function editAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('Nfe102RestoBundle:CodesPostaux')->find($id);
@@ -126,36 +132,35 @@ class CodesPostauxController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('Nfe102RestoBundle:CodesPostaux:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
+                ));
     }
 
     /**
-    * Creates a form to edit a CodesPostaux entity.
-    *
-    * @param CodesPostaux $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(CodesPostaux $entity)
-    {
+     * Creates a form to edit a CodesPostaux entity.
+     *
+     * @param CodesPostaux $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createEditForm(CodesPostaux $entity) {
         $form = $this->createForm(new CodesPostauxType(), $entity, array(
             'action' => $this->generateUrl('codespostaux_update', array('id' => $entity->getId())),
             'method' => 'PUT',
-        ));
+                ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
+
     /**
      * Edits an existing CodesPostaux entity.
      *
      */
-    public function updateAction(Request $request, $id)
-    {
+    public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('Nfe102RestoBundle:CodesPostaux')->find($id);
@@ -175,17 +180,17 @@ class CodesPostauxController extends Controller
         }
 
         return $this->render('Nfe102RestoBundle:CodesPostaux:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
+                ));
     }
+
     /**
      * Deletes a CodesPostaux entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
+    public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -211,13 +216,13 @@ class CodesPostauxController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
+    private function createDeleteForm($id) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('codespostaux_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
+                        ->setAction($this->generateUrl('codespostaux_delete', array('id' => $id)))
+                        ->setMethod('DELETE')
+                        ->add('submit', 'submit', array('label' => 'Delete'))
+                        ->getForm()
         ;
     }
+
 }

@@ -31,9 +31,9 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="Descrition", type="string", length=45, nullable=true)
+     * @ORM\Column(name="Description", type="string", length=45, nullable=true)
      */
-    private $descrition;
+    private $description;
 
     /**
      * @var string
@@ -136,26 +136,26 @@ class Produit
     }
 
     /**
-     * Set descrition
+     * Set description
      *
-     * @param string $descrition
+     * @param string $description
      * @return Produit
      */
-    public function setDescrition($descrition)
+    public function setDescription($description)
     {
-        $this->descrition = $descrition;
+        $this->description = $description;
     
         return $this;
     }
 
     /**
-     * Get descrition
+     * Get description
      *
      * @return string 
      */
-    public function getDescrition()
+    public function getDescription()
     {
-        return $this->descrition;
+        return $this->description;
     }
 
     /**

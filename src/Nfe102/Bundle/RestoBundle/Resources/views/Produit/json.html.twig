@@ -1,0 +1,13 @@
+
+        {% for entity in entities %}
+
+            
+                {{ entity.nom  |json_encode() }}
+                {{ entity.description  |json_encode() }}
+                {{ entity.image  |json_encode()  }}
+                {{ entity.prix  |json_encode() }}
+                {{ entity.dispo  |json_encode() }}
+                {% if entity.datecreateprod %}{{ entity.datecreateprod|date('Y-m-d H:i:s')  |json_encode() }}{% endif %}
+                {% if entity.dateupdateprod %}{{ entity.dateupdateprod|date('Y-m-d H:i:s')  |json_encode() }}{% endif %}
+ 
+        {% endfor %}

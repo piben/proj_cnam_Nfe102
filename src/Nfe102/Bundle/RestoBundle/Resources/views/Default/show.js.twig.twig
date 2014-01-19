@@ -1,0 +1,59 @@
+{# empty Twig template #}
+<script type="text/javascript">
+    
+ function tableproduit() {   
+   
+ idprod = "78685675";  
+ showtable =  '<table class="table table-hover">';
+ 
+ 
+ showtable .=    '<tr>'+                   
+                    '<td>'+
+                        '<div class="produitCont">'+
+                          '<img src="{{ asset('bundles/nfe102resto/images/') }}'+idprod+'.jpg" height="67" width="100" class="img-rounded"/>'+
+                            '<span>'+description+'</span>'+
+                         '</div>'+
+                    '</td>'+
+                 '<td>'+
+                    '<span class="prix">'+
+                        prix +'&euro;'+
+                     '</span>'+
+                 '</td>'+
+                  '<td>'+
+                    '<span class="qté">'+
+                      '<button type="button" class="btn btn-default btn-lg" onclick="javascript:modal(\''+idprod+'\'),cartshow();">'+
+                      '<span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier'+
+                      '</button>'+
+                    '</span>'+
+                   '</td>'+
+                  '</tr>';
+
+
+showtable .= '</table>'; 
+}
+    
+    </script>    
+
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('produit_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.image }}</td>
+                <td>{{ entity.prix }}</td>
+                <td>{{ entity.dispo }}</td>
+                <td>{% if entity.datecreateprod %}{{ entity.datecreateprod|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateupdateprod %}{{ entity.dateupdateprod|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('produit_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('produit_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}

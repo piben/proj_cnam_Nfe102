@@ -1,5 +1,20 @@
-{% extends '::base.html.twig' %}
-
+{#% extends '::base.html.twig' %#}
+<!DOCTYPE html>
+<html>
+    <head>
+<script src="{{ asset('bundles/nfe102resto/js/jquery-1.10.2.min.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+    function AddCath(){
+        
+        {# $(".addcath").html($.trim({% render controller("Nfe102RestoBundle:CathegorieProduit:create") %}));#}
+         
+          $(".addcath").html('<form method="post" action="/proj_cnam_Nfe102/web/app_dev.php/cathegorieproduit/create"><div id="nfe102_bundle_restobundle_cathegorieproduit"><div><label for="nfe102_bundle_restobundle_cathegorieproduit_type">Type</label><input type="text" id="nfe102_bundle_restobundle_cathegorieproduit_type" name="nfe102_bundle_restobundle_cathegorieproduit[type]" maxlength="255" /></div><div><button type="submit" id="nfe102_bundle_restobundle_cathegorieproduit_submit" name="nfe102_bundle_restobundle_cathegorieproduit[submit]">Create</button></div><input type="hidden" id="nfe102_bundle_restobundle_cathegorieproduit__token" name="nfe102_bundle_restobundle_cathegorieproduit[_token]" value="b30dbe783c4e7e354492884de16af739366cb30f" /></div></form>');
+        
+        }
+    
+</script> 
+</head>
+<body>
 {% block body -%}
     <h1>Produit creation</h1>
 
@@ -12,4 +27,9 @@
         </a>
     </li>
 </ul>
+    <button class="btn btn-primary btn-mini change-mail-action" onclick="javascript:AddCath();" type="button">Ajouter Cathegorie</button> 
+    
+    <div class="addcath"></div>
 {% endblock %}
+</body>
+</html>

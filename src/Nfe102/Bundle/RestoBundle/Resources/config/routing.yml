@@ -1,6 +1,6 @@
-nfe102_resto_hellopage:
-    pattern:  /hello/{name}
-    defaults: { _controller: Nfe102RestoBundle:Default:hello }
+#nfe102_resto_hellopage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: Nfe102RestoBundle:Default:hello }
     
 nfe102_resto_homepage:
     pattern:  /{menu}

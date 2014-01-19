@@ -28,7 +28,7 @@ class AdresseType extends AbstractType
             //->add('datecreateadresse')
             //->add('dateupdateadresse')
             //->add('idclient','hidden',array('data'=>$this->idclient))
-            ->add('idcodepostal',null,array('label'=>'code postal'))
+          //  ->add('idcodepostal',null,array('label'=>'code postal'))
         ;
     }
     

@@ -5,6 +5,11 @@ produit:
 produit_show:
     pattern:  /{id}/show
     defaults: { _controller: "Nfe102RestoBundle:Produit:show" }
+    
+produit_jsonshow:
+    pattern:  /show
+    defaults: { _controller: "Nfe102RestoBundle:Produit:jsonshow"} 
+    #, _format: json }
 
 produit_new:
     pattern:  /admin/new

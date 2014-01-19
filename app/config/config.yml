@@ -4,6 +4,8 @@ imports:
 
 framework:
     #esi:             ~
+    serializer:
+        enabled: true
     translator:      { fallback: %locale% }
     secret:          %secret%
     router:
@@ -76,3 +78,9 @@ fos_user:
             type: nfe102_user_registration
     group:
         group_class: Nfe102\Bundle\RestoBundle\Entity\Group
+        
+services:
+   get_set_method_normalizer:
+      class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+      tags:
+         - { name: serializer.normalizer }

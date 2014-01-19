@@ -5,7 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="nom" type="string" column="Nom" length="45" nullable="true"/>
-    <field name="descrition" type="string" column="Descrition" length="45" nullable="true"/>
+    <field name="description" type="string" column="Description" length="45" nullable="true"/>
     <field name="image" type="string" column="Image" length="45" nullable="true"/>
     <field name="prix" type="string" column="Prix" length="45" nullable="true"/>
     <field name="dispo" type="string" column="dispo" length="7" nullable="true"/>
