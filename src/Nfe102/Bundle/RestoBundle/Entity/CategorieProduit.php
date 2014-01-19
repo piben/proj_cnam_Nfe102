@@ -5,17 +5,17 @@ namespace Nfe102\Bundle\RestoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CathegorieProduit
+ * CategorieProduit
  *
- * @ORM\Table(name="Cathegorie_Produit")
+ * @ORM\Table(name="Categorie_Produit")
  * @ORM\Entity
  */
-class CathegorieProduit
+class CategorieProduit
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="idCathegorie", type="integer", nullable=false)
+     * @ORM\Column(name="idCategorie", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -45,7 +45,7 @@ class CathegorieProduit
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="idcathegorie")
+     * @ORM\ManyToMany(targetEntity="Produit", mappedBy="idcategorie")
      */
     private $idproduit;
 
@@ -59,7 +59,7 @@ class CathegorieProduit
     
 
     /**
-     * Get idcathegorie
+     * Get idcategorie
      *
      * @return integer 
      */
@@ -72,7 +72,7 @@ class CathegorieProduit
      * Set type
      *
      * @param string $type
-     * @return CathegorieProduit
+     * @return CategorieProduit
      */
     public function setType($type)
     {
@@ -95,7 +95,7 @@ class CathegorieProduit
      * Set datecreatecat
      *
      * @param \DateTime $datecreatecat
-     * @return CathegorieProduit
+     * @return CategorieProduit
      */
     public function setDatecreatecat($datecreatecat)
     {
@@ -118,7 +118,7 @@ class CathegorieProduit
      * Set dateupdatecat
      *
      * @param \DateTime $dateupdatecat
-     * @return CathegorieProduit
+     * @return CategorieProduit
      */
     public function setDateupdatecat($dateupdatecat)
     {
@@ -141,7 +141,7 @@ class CathegorieProduit
      * Add idproduit
      *
      * @param \Nfe102\Bundle\RestoBundle\Entity\Produit $idproduit
-     * @return CathegorieProduit
+     * @return CategorieProduit
      */
     public function addIdproduit(\Nfe102\Bundle\RestoBundle\Entity\Produit $idproduit)
     {

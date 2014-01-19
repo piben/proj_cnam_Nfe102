@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>CathegorieProduit</h1>
+    <h1>CategorieProduit</h1>
 
     <table class="record_properties">
         <tbody>
@@ -26,12 +26,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('cathegorieproduit') }}">
+        <a href="{{ path('categorieproduit') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('cathegorieproduit_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('categorieproduit_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

@@ -5,37 +5,37 @@ namespace Nfe102\Bundle\RestoBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Nfe102\Bundle\RestoBundle\Entity\CathegorieProduit;
-use Nfe102\Bundle\RestoBundle\Form\CathegorieProduitType;
+use Nfe102\Bundle\RestoBundle\Entity\CategorieProduit;
+use Nfe102\Bundle\RestoBundle\Form\CategorieProduitType;
 
 /**
- * CathegorieProduit controller.
+ * CategorieProduit controller.
  *
  */
-class CathegorieProduitController extends Controller
+class CategorieProduitController extends Controller
 {
 
     /**
-     * Lists all CathegorieProduit entities.
+     * Lists all CategorieProduit entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('Nfe102RestoBundle:CathegorieProduit')->findAll();
+        $entities = $em->getRepository('Nfe102RestoBundle:CategorieProduit')->findAll();
 
-        return $this->render('Nfe102RestoBundle:CathegorieProduit:index.html.twig', array(
+        return $this->render('Nfe102RestoBundle:CategorieProduit:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new CathegorieProduit entity.
+     * Creates a new CategorieProduit entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new CathegorieProduit();
+        $entity = new CategorieProduit();
         
         $date = new \DateTime("now");     
         $entity->setDatecreatecat($date);
@@ -48,26 +48,26 @@ class CathegorieProduitController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cathegorieproduit_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('categorieproduit_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('Nfe102RestoBundle:CathegorieProduit:new.html.twig', array(
+        return $this->render('Nfe102RestoBundle:CategorieProduit:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-    * Creates a form to create a CathegorieProduit entity.
+    * Creates a form to create a CategorieProduit entity.
     *
-    * @param CathegorieProduit $entity The entity
+    * @param CategorieProduit $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(CathegorieProduit $entity)
+    private function createCreateForm(CategorieProduit $entity)
     {
-        $form = $this->createForm(new CathegorieProduitType(), $entity, array(
-            'action' => $this->generateUrl('cathegorieproduit_create'),
+        $form = $this->createForm(new CategorieProduitType(), $entity, array(
+            'action' => $this->generateUrl('categorieproduit_create'),
             'method' => 'POST',
         ));
 
@@ -77,59 +77,59 @@ class CathegorieProduitController extends Controller
     }
 
     /**
-     * Displays a form to create a new CathegorieProduit entity.
+     * Displays a form to create a new CategorieProduit entity.
      *
      */
     public function newAction()
     {
-        $entity = new CathegorieProduit();
+        $entity = new CategorieProduit();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('Nfe102RestoBundle:CathegorieProduit:new.html.twig', array(
+        return $this->render('Nfe102RestoBundle:CategorieProduit:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a CathegorieProduit entity.
+     * Finds and displays a CategorieProduit entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:CathegorieProduit')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:CategorieProduit')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CathegorieProduit entity.');
+            throw $this->createNotFoundException('Unable to find CategorieProduit entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('Nfe102RestoBundle:CathegorieProduit:show.html.twig', array(
+        return $this->render('Nfe102RestoBundle:CategorieProduit:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
-     * Displays a form to edit an existing CathegorieProduit entity.
+     * Displays a form to edit an existing CategorieProduit entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:CathegorieProduit')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:CategorieProduit')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CathegorieProduit entity.');
+            throw $this->createNotFoundException('Unable to find CategorieProduit entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('Nfe102RestoBundle:CathegorieProduit:edit.html.twig', array(
+        return $this->render('Nfe102RestoBundle:CategorieProduit:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -137,16 +137,16 @@ class CathegorieProduitController extends Controller
     }
 
     /**
-    * Creates a form to edit a CathegorieProduit entity.
+    * Creates a form to edit a CategorieProduit entity.
     *
-    * @param CathegorieProduit $entity The entity
+    * @param CategorieProduit $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(CathegorieProduit $entity)
+    private function createEditForm(CategorieProduit $entity)
     {
-        $form = $this->createForm(new CathegorieProduitType(), $entity, array(
-            'action' => $this->generateUrl('cathegorieproduit_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new CategorieProduitType(), $entity, array(
+            'action' => $this->generateUrl('categorieproduit_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -155,20 +155,20 @@ class CathegorieProduitController extends Controller
         return $form;
     }
     /**
-     * Edits an existing CathegorieProduit entity.
+     * Edits an existing CategorieProduit entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('Nfe102RestoBundle:CathegorieProduit')->find($id);
+        $entity = $em->getRepository('Nfe102RestoBundle:CategorieProduit')->find($id);
         
         $date = new \DateTime("now");     
         $entity->setDateupdatecat($date);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CathegorieProduit entity.');
+            throw $this->createNotFoundException('Unable to find CategorieProduit entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -178,17 +178,17 @@ class CathegorieProduitController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cathegorieproduit_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('categorieproduit_edit', array('id' => $id)));
         }
 
-        return $this->render('Nfe102RestoBundle:CathegorieProduit:edit.html.twig', array(
+        return $this->render('Nfe102RestoBundle:CategorieProduit:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a CathegorieProduit entity.
+     * Deletes a CategorieProduit entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -198,21 +198,21 @@ class CathegorieProduitController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('Nfe102RestoBundle:CathegorieProduit')->find($id);
+            $entity = $em->getRepository('Nfe102RestoBundle:CategorieProduit')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find CathegorieProduit entity.');
+                throw $this->createNotFoundException('Unable to find CategorieProduit entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('cathegorieproduit'));
+        return $this->redirect($this->generateUrl('categorieproduit'));
     }
 
     /**
-     * Creates a form to delete a CathegorieProduit entity by id.
+     * Creates a form to delete a CategorieProduit entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -221,7 +221,7 @@ class CathegorieProduitController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('cathegorieproduit_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('categorieproduit_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

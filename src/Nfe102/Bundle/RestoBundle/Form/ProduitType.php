@@ -23,7 +23,7 @@ class ProduitType extends AbstractType
         //    ->add('datecreateprod')
         //    ->add('dateupdateprod')
         //    ->add('idpanier')
-            ->add( 'idcathegorie', null ,array('label' =>"Cathegorie"))
+            ->add( 'idcategorie', null ,array('label' =>"Categorie"))
         ;
     }
     

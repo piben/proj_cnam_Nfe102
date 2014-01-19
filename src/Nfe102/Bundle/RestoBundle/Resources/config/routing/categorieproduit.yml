@@ -1,0 +1,30 @@
+categorieproduit:
+    pattern:  /
+    defaults: { _controller: "Nfe102RestoBundle:CategorieProduit:index" }
+
+categorieproduit_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "Nfe102RestoBundle:CategorieProduit:show" }
+
+categorieproduit_new:
+    pattern:  /new
+    defaults: { _controller: "Nfe102RestoBundle:CategorieProduit:new" }
+
+categorieproduit_create:
+    pattern:  /create
+    defaults: { _controller: "Nfe102RestoBundle:CategorieProduit:create" }
+    requirements: { _method: post }
+
+categorieproduit_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "Nfe102RestoBundle:CategorieProduit:edit" }
+
+categorieproduit_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "Nfe102RestoBundle:CategorieProduit:update" }
+    requirements: { _method: post|put }
+
+categorieproduit_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "Nfe102RestoBundle:CategorieProduit:delete" }
+    requirements: { _method: post|delete }

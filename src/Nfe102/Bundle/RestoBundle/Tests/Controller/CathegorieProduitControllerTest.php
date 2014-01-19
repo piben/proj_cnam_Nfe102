@@ -4,7 +4,7 @@ namespace Nfe102\Bundle\RestoBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CathegorieProduitControllerTest extends WebTestCase
+class CategorieProduitControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class CathegorieProduitControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/cathegorieproduit/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /cathegorieproduit/");
+        $crawler = $client->request('GET', '/categorieproduit/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /categorieproduit/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'nfe102_bundle_restobundle_cathegorieproduittype[field_name]'  => 'Test',
+            'nfe102_bundle_restobundle_categorieproduittype[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class CathegorieProduitControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Edit')->form(array(
-            'nfe102_bundle_restobundle_cathegorieproduittype[field_name]'  => 'Foo',
+            'nfe102_bundle_restobundle_categorieproduittype[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

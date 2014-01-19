@@ -80,17 +80,17 @@ class Produit
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="CathegorieProduit", inversedBy="idproduit")
+     * @ORM\ManyToMany(targetEntity="CategorieProduit", inversedBy="idproduit")
      * @ORM\JoinTable(name="classe",
      *   joinColumns={
      *     @ORM\JoinColumn(name="idProduit", referencedColumnName="idProduit")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idCathegorie", referencedColumnName="idCathegorie")
+     *     @ORM\JoinColumn(name="idCategorie", referencedColumnName="idCategorie")
      *   }
      * )
      */
-    private $idcathegorie;
+    private $idcategorie;
 
     /**
      * Constructor
@@ -98,7 +98,7 @@ class Produit
     public function __construct()
     {
         $this->idpanier = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idcathegorie = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idcategorie = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -307,40 +307,40 @@ class Produit
     }
 
     /**
-     * Add idcathegorie
+     * Add idcategorie
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\CathegorieProduit $idcathegorie
+     * @param \Nfe102\Bundle\RestoBundle\Entity\CategorieProduit $idcategorie
      * @return Produit
      */
-    public function addIdcathegorie(\Nfe102\Bundle\RestoBundle\Entity\CathegorieProduit $idcathegorie)
+    public function addIdcategorie(\Nfe102\Bundle\RestoBundle\Entity\CategorieProduit $idcategorie)
     {
-        $this->idcathegorie[] = $idcathegorie;
+        $this->idcategorie[] = $idcategorie;
     
         return $this;
     }
 
     /**
-     * Remove idcathegorie
+     * Remove idcategorie
      *
-     * @param \Nfe102\Bundle\RestoBundle\Entity\CathegorieProduit $idcathegorie
+     * @param \Nfe102\Bundle\RestoBundle\Entity\CategorieProduit $idcategorie
      */
-    public function removeIdcathegorie(\Nfe102\Bundle\RestoBundle\Entity\CathegorieProduit $idcathegorie)
+    public function removeIdcategorie(\Nfe102\Bundle\RestoBundle\Entity\CategorieProduit $idcategorie)
     {
-        $this->idcathegorie->removeElement($idcathegorie);
+        $this->idcategorie->removeElement($idcategorie);
     }
 
     /**
-     * Get idcathegorie
+     * Get idcategorie
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getIdcathegorie()
+    public function getIdcategorie()
     {
-        return $this->idcathegorie;
+        return $this->idcategorie;
     }
     
     public function __toString() {
-    return $this->idcathegorie; 
+    return $this->idcategorie; 
     }
     
     

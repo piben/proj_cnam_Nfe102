@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="CathegorieProduit" table="Cathegorie_Produit">
-    <id name="idcathegorie" type="integer" column="idCathegorie">
+  <entity name="CategorieProduit" table="Categorie_Produit">
+    <id name="idcategorie" type="integer" column="idCategorie">
       <generator strategy="IDENTITY"/>
     </id>
     <field name="type" type="string" column="Type" length="255" nullable="true"/>
     <field name="datecreatecat" type="datetime" column="DateCreateCat" nullable="true"/>
     <field name="dateupdatecat" type="datetime" column="DateUpdateCat" nullable="true"/>
-    <many-to-many field="idproduit" target-entity="Produit" mapped-by="idcathegorie"/>
+    <many-to-many field="idproduit" target-entity="Produit" mapped-by="idcategorie"/>
   </entity>
 </doctrine-mapping>

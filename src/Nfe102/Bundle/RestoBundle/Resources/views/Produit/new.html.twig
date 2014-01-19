@@ -6,9 +6,9 @@
 <script type="text/javascript">
     function AddCath(){
         
-        {# $(".addcath").html($.trim({% render controller("Nfe102RestoBundle:CathegorieProduit:create") %}));#}
+        {# $(".addcath").html($.trim({% render controller("Nfe102RestoBundle:CategorieProduit:create") %}));#}
          
-          $(".addcath").html('<form method="post" action="/proj_cnam_Nfe102/web/app_dev.php/cathegorieproduit/create"><div id="nfe102_bundle_restobundle_cathegorieproduit"><div><label for="nfe102_bundle_restobundle_cathegorieproduit_type">Type</label><input type="text" id="nfe102_bundle_restobundle_cathegorieproduit_type" name="nfe102_bundle_restobundle_cathegorieproduit[type]" maxlength="255" /></div><div><button type="submit" id="nfe102_bundle_restobundle_cathegorieproduit_submit" name="nfe102_bundle_restobundle_cathegorieproduit[submit]">Create</button></div><input type="hidden" id="nfe102_bundle_restobundle_cathegorieproduit__token" name="nfe102_bundle_restobundle_cathegorieproduit[_token]" value="b30dbe783c4e7e354492884de16af739366cb30f" /></div></form>');
+          $(".addcath").html('<form method="post" action="/proj_cnam_Nfe102/web/app_dev.php/categorieproduit/create"><div id="nfe102_bundle_restobundle_categorieproduit"><div><label for="nfe102_bundle_restobundle_categorieproduit_type">Type</label><input type="text" id="nfe102_bundle_restobundle_categorieproduit_type" name="nfe102_bundle_restobundle_categorieproduit[type]" maxlength="255" /></div><div><button type="submit" id="nfe102_bundle_restobundle_categorieproduit_submit" name="nfe102_bundle_restobundle_categorieproduit[submit]">Create</button></div><input type="hidden" id="nfe102_bundle_restobundle_categorieproduit__token" name="nfe102_bundle_restobundle_categorieproduit[_token]" value="b30dbe783c4e7e354492884de16af739366cb30f" /></div></form>');
         
         }
     
@@ -27,7 +27,7 @@
         </a>
     </li>
 </ul>
-    <button class="btn btn-primary btn-mini change-mail-action" onclick="javascript:AddCath();" type="button">Ajouter Cathegorie</button> 
+    <button class="btn btn-primary btn-mini change-mail-action" onclick="javascript:AddCath();" type="button">Ajouter Categorie</button> 
     
     <div class="addcath"></div>
 {% endblock %}

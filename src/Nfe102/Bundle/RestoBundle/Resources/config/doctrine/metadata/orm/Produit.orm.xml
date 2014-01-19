@@ -11,13 +11,13 @@
     <field name="dispo" type="string" column="dispo" length="7" nullable="true"/>
     <field name="datecreateprod" type="datetime" column="DateCreateProd" nullable="true"/>
     <field name="dateupdateprod" type="datetime" column="DateUpdateProd" nullable="true"/>
-    <many-to-many field="idcathegorie" target-entity="CathegorieProduit" inversed-by="idproduit">
+    <many-to-many field="idcategorie" target-entity="CategorieProduit" inversed-by="idproduit">
       <join-table name="classe">
         <join-columns>
           <join-column name="idProduit" referenced-column-name="idProduit"/>
         </join-columns>
         <inverse-join-columns>
-          <join-column name="idCathegorie" referenced-column-name="idCathegorie"/>
+          <join-column name="idCategorie" referenced-column-name="idCategorie"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>

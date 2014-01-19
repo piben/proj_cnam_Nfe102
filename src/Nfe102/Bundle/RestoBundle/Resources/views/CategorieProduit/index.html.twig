@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>CathegorieProduit list</h1>
+    <h1>CategorieProduit list</h1>
 
     <table class="records_list">
         <thead>
@@ -16,17 +16,17 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('cathegorieproduit_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('categorieproduit_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.type }}</td>
                 <td>{% if entity.datecreatecat %}{{ entity.datecreatecat|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.dateupdatecat %}{{ entity.dateupdatecat|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('cathegorieproduit_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('categorieproduit_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('cathegorieproduit_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('categorieproduit_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -37,7 +37,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('cathegorieproduit_new') }}">
+            <a href="{{ path('categorieproduit_new') }}">
                 Create a new entry
             </a>
         </li>

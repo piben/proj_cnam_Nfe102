@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CathegorieProduitType extends AbstractType
+class CategorieProduitType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -28,7 +28,7 @@ class CathegorieProduitType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Nfe102\Bundle\RestoBundle\Entity\CathegorieProduit'
+            'data_class' => 'Nfe102\Bundle\RestoBundle\Entity\CategorieProduit'
         ));
     }
 
@@ -37,6 +37,6 @@ class CathegorieProduitType extends AbstractType
      */
     public function getName()
     {
-        return 'nfe102_bundle_restobundle_cathegorieproduit';
+        return 'nfe102_bundle_restobundle_categorieproduit';
     }
 }
