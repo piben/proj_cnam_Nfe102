@@ -87,9 +87,9 @@ class Adresse
      *
      * @return integer 
      */
-    public function getIdadresse()
+    public function getId()
     {
-        return $this->idadresse;
+        return $this->id;
     }
 
     /**
