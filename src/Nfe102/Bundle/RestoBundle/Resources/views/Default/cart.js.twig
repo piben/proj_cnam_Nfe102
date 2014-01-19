@@ -66,11 +66,12 @@ if (cart != '' && cart !== null) {
     
     for (var i in cart) {
         //<!-- debut gene -->
-              out +=   '<tr class="ligne">' +                   
+              out +=   '<tr class="ligne active">' +                   
                         '<td>' +
                             '<div class="produitCont">' +
                                 '<img src="{{ asset('bundles/nfe102resto/images/') }}'+ i +'.jpg" height="67" width="100" class="img-rounded"/>' +
-                                '<span>Description</span>' +
+                                '<strong>'+$('.nom'+i).text() +
+                            '</strong><br/><span>'+$('.description'+i).text()+'</span>' +
                             '</div>' +
                         '</td>' +
                         '<td class="modeLivraison domicile">' +
@@ -79,8 +80,8 @@ if (cart != '' && cart !== null) {
                             '</div>' +
                         '</td>' +
                         '<td>' +
-                            '<span class="prix">' +
-                                '35.60 &euro;' +
+                            '<span>' +
+                                $('.prix'+i).text() +
                             '</span>' +
                         '</td>' +
                         '<td>' +
@@ -94,7 +95,7 @@ if (cart != '' && cart !== null) {
                         '</td>' +
                         '<td>' +
                             '<span class="prix prixTotal">' +
-                                '35.60 &euro;' + // TODO Prix
+                                $('.prix'+i).text().replace("€", "") *  cart[i] +'&euro;' + // TODO Prix
                             '</span>' +
                         '</td>' +
                     '</tr>';
@@ -106,6 +107,60 @@ if (cart != '' && cart !== null) {
  
       $( ".showcart" ).after(out);
        // console.log(data);
+             }
+}
+)}; 
+
+
+    
+function listesproductshow() { 
+
+    $.ajax({
+    type: "POST",
+    url: "{{ path('produit_jsonshow') }}",
+    dataType: 'json',
+  //  async: false,
+    success: function(liste){
+        
+       var showtable = '';
+       var image = '78685674';
+       
+         if ($(".liste")){
+         $(".liste").remove();   
+         }
+       
+        for (var i=0;i<liste.length;i++) {
+            
+            if (liste[i]['image']) { // image default
+             image = liste[i]['image'];                 
+            }
+            
+      showtable = '<tr class="liste">'+                   
+                    '<td>'+
+                        '<div class="produitCont">'+
+                          '<img src="{{ asset('bundles/nfe102resto/images/') }}'+image+'.jpg" height="67" width="100" class="img-rounded"/>'+
+                            '<strong class="nom'+liste[i]["id"]+'">'+liste[i]['nom']+'</strong><br />'+
+                            '<span class="description'+liste[i]["id"]+'">('+liste[i]['description']+')</span>'+
+                         '</div>'+
+                    '</td>'+
+                 '<td>'+
+                    '<span class="prix'+liste[i]["id"]+'">'+
+                        liste[i]['prix'] +'&euro;'+
+                     '</span>'+
+                 '</td>'+
+                  '<td>'+
+                    '<span class="qté">'+
+                      '<button type="button" class="btn btn-default btn-lg" onclick="javascript:modal(\''+liste[i]["id"]+'\'),cartshow();">'+
+                      '<span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier'+
+                      '</button>'+
+                    '</span>'+
+                   '</td>'+
+                  '</tr>';      
+            
+             $( ".tableliste" ).append(showtable);
+       //alert(liste[i]['nom']+liste[i]['description']+liste[i]['image']+liste[i]['prix']); 
+  
+          }
              }
 }
 )}; 
