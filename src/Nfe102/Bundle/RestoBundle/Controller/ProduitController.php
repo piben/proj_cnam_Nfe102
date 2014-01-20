@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Nfe102\Bundle\RestoBundle\Entity\Produit;
+use Nfe102\Bundle\RestoBundle\Entity\CategorieProduit;
 use Nfe102\Bundle\RestoBundle\Form\ProduitType;
 use Nfe102\Bundle\RestoBundle\Form\CategorieProduitType;
 
@@ -148,6 +149,35 @@ class ProduitController extends Controller
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
+    
+        /**
+     * Finds and displays a Produit entity (view only).
+     *
+     */
+    public function showviewAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($request->get('id'));
+         //   $entity2 = $em->getRepository('Nfe102RestoBundle:CategorieProduit')->findOneBytype('PIZZA');
+            
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Produit entity.');
+        }
+//        var_dump($entity);die();
+//        $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new
+//                    JsonEncoder()));
+//        $json = $serializer->serialize($entity, 'json');
+        //echo $entity->getIdcategorie(); //, 'idCat' =>$entity2->getId()
+        
+            $entie = array('id' => $entity->getId(),'nom'=>$entity->getnom()
+                    ,'prix'=>$entity->getprix(),'description'=>$entity->getdescription());
+      
+        
+        return new Response(json_encode($entie), 200, array('Content-Type' => 'application/json'));
+  
+       
+    }
 
     /**
      * Displays a form to edit an existing Produit entity.
@@ -236,7 +266,7 @@ class ProduitController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
-
+            
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Produit entity.');
             }

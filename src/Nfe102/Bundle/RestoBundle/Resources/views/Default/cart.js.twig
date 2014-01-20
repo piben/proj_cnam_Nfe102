@@ -56,22 +56,27 @@
   //  async: false,
     success: function(cart){
         
-           if ($(".ligne")){
-         $(".ligne").remove();   
-         }
+
 
              var out = ""; 
 
 if (cart != '' && cart !== null) {
     
     for (var i in cart) {
+          $.ajax({
+                    type: 'POST',
+                    dataType: "json",
+                    url: '{{ path('produit_showview') }}',
+                    data: 'id='+i,
+                    success: function (ret) { 
+                      
         //<!-- debut gene -->
               out +=   '<tr class="ligne active">' +                   
                         '<td>' +
                             '<div class="produitCont">' +
-                                '<img src="{{ asset('bundles/nfe102resto/images/') }}'+ i +'.jpg" height="67" width="100" class="img-rounded"/>' +
-                                '<strong>'+$('.nom'+i).text() +
-                            '</strong><br/><span>'+$('.description'+i).text()+'</span>' +
+                                '<img src="{{ asset('bundles/nfe102resto/images/') }}'+ ret.id +'.jpg" height="67" width="100" class="img-rounded"/>' +
+                                '<strong>'+ret.nom +
+                            '</strong><br/><span>'+ret.description+'</span>' +
                             '</div>' +
                         '</td>' +
                         '<td class="modeLivraison domicile">' +
@@ -81,31 +86,41 @@ if (cart != '' && cart !== null) {
                         '</td>' +
                         '<td>' +
                             '<span>' +
-                                $('.prix'+i).text() +
+                                ret.prix +'&euro;' + 
                             '</span>' +
                         '</td>' +
                         '<td>' +
                             '<span class="qté">' +
-                                '<input type="hidden"  name="idProd"  value="'+i+'">' +
-                                '<input class="btn btn-default" size="2" maxlength="2" type="text" value="'+ cart[i] +'"/>' +
-                                '<button class="btn btn-default btn-sm glyphicon glyphicon-plus" type="button" onclick="javascript:modcart(\'more\','+ i +')" value="+"/>' +
-                                '<button class="btn btn-default btn-sm glyphicon glyphicon-minus" type="button" onclick="javascript:modcart(\'less\','+ i +')" value="-"/>' +
-                                '<button class="btn btn-default btn-sm glyphicon glyphicon-trash" type="button" onclick="javascript:modcart(\'del\','+ i +')"/>' +
+                                '<input type="hidden"  name="idProd"  value="'+ret.id+'">' +
+                                '<input class="btn btn-default" size="2" maxlength="2" type="text" value="'+ cart[ret.id] +'"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-plus" type="button" onclick="javascript:modcart(\'more\','+ ret.id +')" value="+"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-minus" type="button" onclick="javascript:modcart(\'less\','+ ret.id +')" value="-"/>' +
+                                '<button class="btn btn-default btn-sm glyphicon glyphicon-trash" type="button" onclick="javascript:modcart(\'del\','+ ret.id +')"/>' +
                             '</span>' +
                         '</td>' +
                         '<td>' +
                             '<span class="prix prixTotal">' +
-                                $('.prix'+i).text().replace("€", "") *  cart[i] +'&euro;' + // TODO Prix
+                                ret.prix * cart[i] +'&euro;' +
                             '</span>' +
                         '</td>' +
                     '</tr>';
+                        if ($(".ligne")){
+                             $(".ligne").remove();   
+                           }
+                           
+                       $( ".showcart" ).after(out);
+                                    },  
+                                    
+                    error: function(ret) { 
+                        alert("Error windows 8099x89 ;) ");
+                    }
+                  });
               } 
               
               } else {
               out = '<tr class="active ligne"><td>Le panier est vide</td></tr>';
+              $( ".showcart" ).after(out);
               }
- 
-      $( ".showcart" ).after(out);
        // console.log(data);
              }
 }

@@ -229,15 +229,14 @@ class Produit
 
     /**
      * Set datecreateprod
-     *
+     * @ORM\PrePersist
      * @param \DateTime $datecreateprod
      * @return Produit
      */
     public function setDatecreateprod($datecreateprod)
     {
-        $this->datecreateprod = $datecreateprod;
+        $this->datecreateprod = new \DateTime();;
     
-        return $this;
     }
 
     /**
