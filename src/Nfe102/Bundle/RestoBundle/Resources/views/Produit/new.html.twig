@@ -2,34 +2,57 @@
 <!DOCTYPE html>
 <html>
     <head>
-<script src="{{ asset('bundles/nfe102resto/js/jquery-1.10.2.min.js') }}" type="text/javascript"></script>
-<script type="text/javascript">
-    function AddCath(){
+        <script src="{{ asset('bundles/nfe102resto/js/jquery-1.10.2.min.js') }}" type="text/javascript"></script>
+        <script type="text/javascript">
+            var AddCath = function(){
+
+                 $(".addcat").html('{{ form_widget(CategorieProduitType)}}');
+                  $(".addcat").after('&nbsp;<button class="addcatb btn btn-primary btn-mini cancel-button-pwd" onclick="javascript:reset()" type="button">{{ "cancel-button" | trans }}</button>');
+                  $(".addcat").after('&nbsp;<button class="addcatb btn btn-primary btn-mini valid-button" onclick="javascript:Sendcath()" type="button">{{"valid-button" | trans }}</button>');
+      
+                }
         
-        {# $(".addcath").html($.trim({% render controller("Nfe102RestoBundle:CategorieProduit:create") %}));#}
-         
-          $(".addcath").html('<form method="post" action="/proj_cnam_Nfe102/web/app_dev.php/categorieproduit/create"><div id="nfe102_bundle_restobundle_categorieproduit"><div><label for="nfe102_bundle_restobundle_categorieproduit_type">Type</label><input type="text" id="nfe102_bundle_restobundle_categorieproduit_type" name="nfe102_bundle_restobundle_categorieproduit[type]" maxlength="255" /></div><div><button type="submit" id="nfe102_bundle_restobundle_categorieproduit_submit" name="nfe102_bundle_restobundle_categorieproduit[submit]">Create</button></div><input type="hidden" id="nfe102_bundle_restobundle_categorieproduit__token" name="nfe102_bundle_restobundle_categorieproduit[_token]" value="b30dbe783c4e7e354492884de16af739366cb30f" /></div></form>');
+           var reset = function(){
+       
+                $(".addcat").html('');
+                $(".addcatb").remove();
         
-        }
-    
-</script> 
-</head>
-<body>
+               }
+           var Sendcath = function() {
+        
+              var newcat = $('#nfe102_bundle_restobundle_categorieproduit_type').val();
+              var token = $('#nfe102_bundle_restobundle_categorieproduit__token').val();
+            $.ajax({
+                 type: 'POST',
+                 url: '{{ path('categorieproduit_create') }}',
+                 data: 'nfe102_bundle_restobundle_categorieproduit[_token]='+token+'&nfe102_bundle_restobundle_categorieproduit[type]='+newcat,
+                 success: function (ret) {
+                 location.reload();
+               // alert(ret); 
+                },
+                error: function(ret) {
+                alert(ret);
+          }
+       
+               }); }
+            </script> 
+        </head>
+        <body>
 {% block body -%}
-    <h1>Produit creation</h1>
+                <h1>Produit creation</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('produit') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
-    <button class="btn btn-primary btn-mini change-mail-action" onclick="javascript:AddCath();" type="button">Ajouter Categorie</button> 
-    
-    <div class="addcath"></div>
+                <ul class="record_actions">
+                    <li>
+                        <a href="{{ path('produit') }}">
+                            Back to the list
+                        </a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary btn-mini change-mail-action" onclick="javascript:AddCath();" type="button">Ajouter Categorie</button> 
+
+                <div class="addcat"></div>
 {% endblock %}
-</body>
-</html>
+            </body>
+        </html>

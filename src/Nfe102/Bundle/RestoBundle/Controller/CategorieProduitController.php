@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Nfe102\Bundle\RestoBundle\Entity\CategorieProduit;
 use Nfe102\Bundle\RestoBundle\Form\CategorieProduitType;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * CategorieProduit controller.
@@ -47,14 +48,16 @@ class CategorieProduitController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
-            return $this->redirect($this->generateUrl('categorieproduit_show', array('id' => $entity->getId())));
+            
+         return new Response("Add cat ok", 200);
+       //     return $this->redirect($this->generateUrl('categorieproduit_show', array('id' => $entity->getId())));
         }
-
-        return $this->render('Nfe102RestoBundle:CategorieProduit:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+          
+       return new Response("Add pas ok", 500); 
+//        return $this->render('Nfe102RestoBundle:CategorieProduit:new.html.twig', array(
+//            'entity' => $entity,
+//            'form'   => $form->createView(),
+//        ));
     }
 
     /**

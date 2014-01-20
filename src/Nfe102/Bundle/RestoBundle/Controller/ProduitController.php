@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Nfe102\Bundle\RestoBundle\Entity\Produit;
 use Nfe102\Bundle\RestoBundle\Form\ProduitType;
+use Nfe102\Bundle\RestoBundle\Form\CategorieProduitType;
 
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -116,10 +117,14 @@ class ProduitController extends Controller
     {
         $entity = new Produit();
         $form   = $this->createCreateForm($entity);
-
+        
+        
+        $CategorieProduitType = $this->createForm(new CategorieProduitType());
+        
         return $this->render('Nfe102RestoBundle:Produit:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'CategorieProduitType' => $CategorieProduitType->createView()
         ));
     }
 

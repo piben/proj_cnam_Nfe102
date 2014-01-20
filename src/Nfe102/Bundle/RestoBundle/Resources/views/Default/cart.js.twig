@@ -1,7 +1,7 @@
 <!-- script insertion panier -->  
 <script type="text/javascript">
 
-    function send(){
+    var send = function(){
         val =  $('#art').val();
         alert(val );
         };
@@ -48,7 +48,7 @@
     };
     
 
-    function cartshow () {
+    var  cartshow = function() {
     $.ajax({
     type: "POST",
     url: "{{ path('nfe102_resto_showCart') }}",
@@ -102,7 +102,7 @@ if (cart != '' && cart !== null) {
               } 
               
               } else {
-              out = '<tr class="ligne"><td>Le panier est vide</td></tr>';
+              out = '<tr class="active ligne"><td>Le panier est vide</td></tr>';
               }
  
       $( ".showcart" ).after(out);
@@ -113,7 +113,7 @@ if (cart != '' && cart !== null) {
 
 
     
-function listesproductshow() { 
+   var  listesproductshow = function() { 
 
     $.ajax({
     type: "POST",

@@ -16,3 +16,10 @@ Mettre les paramètres de la base de données.
 toujours dans le répertoire source faites une mise à jour 
 
 (Répertoire du projet (hors symfony) src/Nfe102/Bundle/RestoBundle)
+
+Créer un utilisateur (admin) 
+php app/console fos:user:create
+
+Lui affecter role admin
+ php app/console fos:user:promote
+(ROLE_ADMIN)
