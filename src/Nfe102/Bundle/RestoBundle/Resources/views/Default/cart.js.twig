@@ -161,7 +161,7 @@ function listesproductshow() {
        //alert(liste[i]['nom']+liste[i]['description']+liste[i]['image']+liste[i]['prix']); 
   
           }
-             }
+             }, error: function(){  $( ".tableliste" ).append('<tr><td>Il n\'y a pas de produit enregistré!</td></tr>'); }
 }
 )}; 
     </script>
