@@ -41,7 +41,7 @@
 
                     },  
                     error: function(ret) { cartshow(); 
-                     //   alertview("E",mail,JSON.stringify(ret.responseText));
+                        alert('Error YTJVG687');
                     }
                   });  
            
@@ -58,11 +58,12 @@
         
 
 
-             var out = ""; 
-
+              
+             var prixtotal = "";
 if (cart != '' && cart !== null) {
     
     for (var i in cart) {
+        var out = "";
           $.ajax({
                     type: 'POST',
                     dataType: "json",
@@ -74,7 +75,7 @@ if (cart != '' && cart !== null) {
               out +=   '<tr class="ligne active">' +                   
                         '<td>' +
                             '<div class="produitCont">' +
-                                '<img src="{{ asset('bundles/nfe102resto/images/') }}'+ ret.id +'.jpg" height="67" width="100" class="img-rounded"/>' +
+                            //    '<img src="{{ asset('bundles/nfe102resto/images/') }}'+ ret.id +'.jpg" height="67" width="100" class="img-rounded"/>' +
                                 '<strong>'+ret.nom +
                             '</strong><br/><span>'+ret.description+'</span>' +
                             '</div>' +
@@ -100,15 +101,18 @@ if (cart != '' && cart !== null) {
                         '</td>' +
                         '<td>' +
                             '<span class="prix prixTotal">' +
-                                ret.prix * cart[i] +'&euro;' +
+                                ret.prix * cart[ret.id] +'&euro;' +
                             '</span>' +
                         '</td>' +
                     '</tr>';
+                               
+                               prixtotal =  eval(prixtotal+(parseInt(ret.prix) * parseInt(cart[ret.id])));
+                               
                         if ($(".ligne")){
                              $(".ligne").remove();   
                            }
                            
-                       $( ".showcart" ).after(out);
+                           $( ".showcart" ).after(out);
                                     },  
                                     
                     error: function(ret) { 
@@ -122,9 +126,26 @@ if (cart != '' && cart !== null) {
               $( ".showcart" ).after(out);
               }
        // console.log(data);
+       $('.totalcart').append(prixtotal+' &euro;');
              }
+              
 }
 )}; 
+    
+
+function catproduct(id) {
+    var jqXHR = $.ajax({
+          type : "POST",
+          cache: false,
+          async: false,
+          data: 'idprod='+id,
+          url: "{{ path('produit_showcat') }}",
+          dataType    : "text",
+    });
+    
+    return jqXHR.responseText;
+}
+
 
 
     
@@ -138,14 +159,19 @@ if (cart != '' && cart !== null) {
     success: function(liste){
         
        var showtable = '';
-       var image = '78685674';
+       var image = $('#defaultimg').val();
+       var categoriepage = $('#categorietype').val();
        
          if ($(".liste")){
          $(".liste").remove();   
          }
        
         for (var i=0;i<liste.length;i++) {
-            
+          
+ 
+    if (catproduct(liste[i]["id"]).toUpperCase() == categoriepage.toUpperCase()){
+    
+    
             if (liste[i]['image']) { // image default
              image = liste[i]['image'];                 
             }
@@ -153,7 +179,7 @@ if (cart != '' && cart !== null) {
       showtable = '<tr class="liste">'+                   
                     '<td>'+
                         '<div class="produitCont">'+
-                          '<img src="{{ asset('bundles/nfe102resto/images/') }}'+image+'.jpg" height="67" width="100" class="img-rounded"/>'+
+                          '<img src="{{ asset('bundles/nfe102resto/images/') }}'+image+'" height="67" width="100" class="img-rounded"/>'+
                             '<strong class="nom'+liste[i]["id"]+'">'+liste[i]['nom']+'</strong><br />'+
                             '<span class="description'+liste[i]["id"]+'">('+liste[i]['description']+')</span>'+
                          '</div>'+
@@ -174,7 +200,7 @@ if (cart != '' && cart !== null) {
             
              $( ".tableliste" ).append(showtable);
        //alert(liste[i]['nom']+liste[i]['description']+liste[i]['image']+liste[i]['prix']); 
-  
+  }
           }
              }, error: function(){  $( ".tableliste" ).append('<tr><td>Il n\'y a pas de produit enregistré!</td></tr>'); }
 }

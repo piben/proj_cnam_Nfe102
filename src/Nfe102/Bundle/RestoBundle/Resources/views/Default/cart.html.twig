@@ -1,6 +1,9 @@
 {% include 'Nfe102RestoBundle:Default:cart.js.twig' %}
 <script type="text/javascript">
- $(document).ready(function() {cartshow()});
+ $(document).ready(function() {
+     cartshow()
+// $('.prix').text().replace("€", "") 
+});
 </script>
 
 <style type="text/css">
@@ -32,7 +35,7 @@
                     <tr>
 
                         <td colspan="3" class="subTotal ">
-                            <span>Frais de livraison</span>
+                            <span><s>Frais de livraison</s></span>
                             <span class="sum"></span>
                         </td>
                     </tr>
@@ -41,12 +44,13 @@
                             <span>TOTAL</span>
                             <span class="sum"></span>
                         </td>
+                        <td></td>
+                        <td class="totalcart"></td>
                     </tr>
 
 
                 </table>
                 
-                <input type="button" value="Commander" class="btn btn-danger" onclick="{#{ path('nfe102_resto_cmd') }#}">
-                <input type="button" value="test" class="btn btn-danger" onclick="javascript:getprodvalue(1)">
+                <input type="button" value="Commander" class="btn btn-danger" onclick="{{ path('cmdfac_new') }}"
                 
                         

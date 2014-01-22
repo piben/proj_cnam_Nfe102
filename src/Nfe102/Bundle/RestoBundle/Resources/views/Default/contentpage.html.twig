@@ -1,0 +1,49 @@
+{% include 'Nfe102RestoBundle:Default:cart.js.twig' %}
+<script type="text/javascript">
+ $(document).ready(function() {listesproductshow();});
+</script>
+{% block menuid %}  
+{% endblock %}
+<table class="table table-hover tableliste">
+    
+    
+</table> 
+
+    <!-- Button to trigger modal -->
+
+     
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    
+    <h3 id="myModalLabel">Mon Panier</h3>
+    </div>
+    <div class="modal-body">
+        <input type="hidden" name="articleId" id="articleId" value=""/>
+                    <table class="cart table table-striped table-bordered table-hover table-responsive">
+                    <tr class="showcart">
+                        <th>Produit(s)</th>
+                        <th></th>
+                        <th></th>
+                        <th>Quantit&eacute;</th>
+                        <th></th>
+                    </tr>
+                    <!-- Ajax insertion -->
+                    <tr>
+                </table>
+    </div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+    <button class="btn btn-primary" onclick="javascript:modcart('more',$('.modal-body #articleId').val());">Ajouter au panier</button>
+    </div>
+    </div>
+
+<script type="text/javascript">
+    function modal (articleId) {
+        $(".modal-body #articleId").val( articleId );
+    $('#myModal').modal({
+    keyboard: false
+    })}
+</script>
+
+

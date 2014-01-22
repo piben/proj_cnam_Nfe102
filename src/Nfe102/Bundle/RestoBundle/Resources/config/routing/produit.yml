@@ -11,6 +11,11 @@ produit_showview:
     defaults: { _controller: "Nfe102RestoBundle:Produit:showview" }    
     requirements: { _method: post }
     
+produit_showcat:
+    pattern:  /showcat
+    defaults: { _controller: "Nfe102RestoBundle:Produit:showcat" }    
+    requirements: { _method: post }
+
 produit_jsonshow:
     pattern:  /show
     defaults: { _controller: "Nfe102RestoBundle:Produit:jsonshow"} 
