@@ -155,7 +155,7 @@ function catproduct(id) {
     type: "POST",
     url: "{{ path('produit_jsonshow') }}",
     dataType: 'json',
-  //  async: false,
+    async: false,
     success: function(liste){
         
        var showtable = '';
