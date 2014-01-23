@@ -6,11 +6,14 @@ nfe102_resto_homepage:
     pattern:  /{menu}
     defaults: { _controller: Nfe102RestoBundle:Default:index , menu: 1}
 
+nfe102_resto_adminpage:
+    resource: "routing/admin.yml"
+    prefix:   /admin
+
 nfe102_resto_cart:
     resource: "cartrouting.yml"
     prefix:   /cart
-    
-    
+        
 nfe102_resto_produit:
     resource: "routing/produit.yml"
     prefix: /produit

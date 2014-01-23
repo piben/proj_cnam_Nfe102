@@ -1,6 +1,6 @@
-produit:
-    pattern:  /admin
-    defaults: { _controller: "Nfe102RestoBundle:Produit:index" }
+#produit:
+#    pattern:  /admin
+#    defaults: { _controller: "Nfe102RestoBundle:Produit:index" }
 
 produit_show:
     pattern:  /{id}/show
@@ -21,25 +21,25 @@ produit_jsonshow:
     defaults: { _controller: "Nfe102RestoBundle:Produit:jsonshow"} 
     #, _format: json }
 
-produit_new:
-    pattern:  /admin/new
-    defaults: { _controller: "Nfe102RestoBundle:Produit:new" }
+#produit_new:
+#    pattern:  /admin/new
+#    defaults: { _controller: "Nfe102RestoBundle:Produit:new" }
 
-produit_create:
-    pattern:  /create
-    defaults: { _controller: "Nfe102RestoBundle:Produit:create" }
-    requirements: { _method: post }
-
-produit_edit:
-    pattern:  admin/{id}/edit
-    defaults: { _controller: "Nfe102RestoBundle:Produit:edit" }
-
-produit_update:
-    pattern:  admin/{id}/update
-    defaults: { _controller: "Nfe102RestoBundle:Produit:update" }
-    requirements: { _method: post|put }
-
-produit_delete:
-    pattern:  admin/{id}/delete
-    defaults: { _controller: "Nfe102RestoBundle:Produit:delete" }
-    requirements: { _method: post|delete }
+#produit_create:
+#    pattern:  /create
+#    defaults: { _controller: "Nfe102RestoBundle:Produit:create" }
+#    requirements: { _method: post }
+#
+#produit_edit:
+#    pattern:  admin/{id}/edit
+#    defaults: { _controller: "Nfe102RestoBundle:Produit:edit" }
+#
+#produit_update:
+#    pattern:  admin/{id}/update
+#    defaults: { _controller: "Nfe102RestoBundle:Produit:update" }
+#    requirements: { _method: post|put }
+#
+#produit_delete:
+#    pattern:  admin/{id}/delete
+#    defaults: { _controller: "Nfe102RestoBundle:Produit:delete" }
+#    requirements: { _method: post|delete }
