@@ -52,7 +52,7 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="dispo", type="string", length=7, nullable=true)
+     * @ORM\Column(type="array")
      */
     private $dispo;
 

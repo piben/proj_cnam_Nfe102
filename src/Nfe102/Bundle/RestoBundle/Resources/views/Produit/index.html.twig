@@ -24,8 +24,11 @@
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.image }}</td>
-                <td>{{ entity.prix }}</td>
-                <td>{{ entity.dispo }}</td>
+                <td>{{ entity.prix }}</td>               
+                <td> {% for disp in entity.dispo %}
+                     {{ disp }}
+                     {% endfor %}
+                </td>
                 <td>{% if entity.datecreateprod %}{{ entity.datecreateprod|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.dateupdateprod %}{{ entity.dateupdateprod|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
