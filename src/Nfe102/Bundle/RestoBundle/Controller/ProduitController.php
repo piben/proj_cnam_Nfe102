@@ -42,11 +42,10 @@ class ProduitController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
-     'SELECT p.id,p.nom,p.description,p.image,p.prix
+     'SELECT p.id,p.nom,p.description,p.image,p.prix,p.dispo
      FROM Nfe102RestoBundle:Produit p
-     WHERE p.dispo LIKE :dispo
      ORDER BY p.prix ASC'
-                )->setParameter('dispo', '1111111');
+                );
 
         $entities = $query->getResult();
 
