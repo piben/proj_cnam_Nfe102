@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Response;
 // Objet request
 use Symfony\Component\HttpFoundation\Request;
+use Nfe102\Bundle\RestoBundle\Entity\Produit;
 
 //use Symfony\Component\Security\Core\SecurityContext;
 
@@ -39,8 +40,9 @@ class CartController extends Controller {
                 $session->set('cart', $cart);
             }
             return new Response("more OK", 200);
-        } else {
-            return new Response("La page n'existe pas",404);
+        }
+        else {
+            return new Response("La page n'existe pas", 404);
         }
     }
 
@@ -61,8 +63,9 @@ class CartController extends Controller {
                 $session->set('cart', $cart);
             }
             return new Response("less OK", 200);
-        } else {
-            return new Response("La page n'existe pas",404);
+        }
+        else {
+            return new Response("La page n'existe pas", 404);
         }
     }
 
@@ -80,8 +83,9 @@ class CartController extends Controller {
                 $session->set('cart', $cart);
             }
             return new Response("del OK", 200);
-        } else {
-            return new Response("La page n'existe pas",404);
+        }
+        else {
+            return new Response("La page n'existe pas", 404);
         }
     }
 
@@ -97,6 +101,27 @@ class CartController extends Controller {
         $session = $this->container->get('session');
         $cart = $session->get('cart');
         return new Response(json_encode($cart), 200);
+    }
+
+    public function showCartCostAction() {
+
+        $session = $this->container->get('session');
+        $cart = $session->get('cart');
+
+        $em = $this->getDoctrine()->getManager();
+        $total = '';
+        foreach (array_keys($cart) as $id) {
+            $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
+            $prix = $entity->getPrix();
+            $nbproduct = $cart[$id];
+
+            $cart[$id] = ($prix*$nbproduct);
+                    // calcul total
+            $total=$total+($prix*$nbproduct);
+        }
+            $cart += array('total' => $total);
+        
+            return new Response(json_encode($cart), 200);
     }
 
 }

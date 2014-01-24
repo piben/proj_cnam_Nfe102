@@ -24,3 +24,8 @@ nfe102_resto_showCart:
     pattern:  /showcart  
     defaults: { _controller: Nfe102RestoBundle:Cart:showCart, _format: json}
    # requirements: { _method: post }    
+
+nfe102_resto_showCartCost:
+    pattern:  /showcartcost  
+    defaults: { _controller: Nfe102RestoBundle:Cart:showCartCost, _format: json}
+   # requirements: { _method: post }    
