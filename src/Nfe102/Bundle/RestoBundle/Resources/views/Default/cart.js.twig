@@ -55,11 +55,7 @@
     dataType: 'json',
   //  async: false,
     success: function(cart){
-        
-
-
-              
-             var prixtotal = "";
+       
 if (cart != '' && cart !== null) {
     
     for (var i in cart) {
@@ -105,8 +101,7 @@ if (cart != '' && cart !== null) {
                             '</span>' +
                         '</td>' +
                     '</tr>';
-                               
-                               prixtotal =  eval(prixtotal+(parseInt(ret.prix) * parseInt(cart[ret.id])));
+                             
                                
                         if ($(".ligne")){
                              $(".ligne").remove();   
@@ -126,12 +121,23 @@ if (cart != '' && cart !== null) {
               $( ".showcart" ).after(out);
               }
        // console.log(data);
-       $('.totalcart').append(prixtotal+' &euro;');
+     $('.totalcart').html(readjson("{{ path('nfe102_resto_showCartCost') }}").responseJSON.total+' &euro;');         
              }
-              
 }
 )}; 
+
+
+function readjson(url) {
+    var jqXHR = $.ajax({
+          type : "POST",
+          cache: false,
+          async: false,
+          url: url,
+          dataType : "json",
+    });
     
+    return jqXHR;
+}
 
 function catproduct(id) {
     var jqXHR = $.ajax({
