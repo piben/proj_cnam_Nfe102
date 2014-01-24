@@ -122,6 +122,7 @@ if (cart != '' && cart !== null) {
               }
        // console.log(data);
      $('.totalcart').html(readjson("{{ path('nfe102_resto_showCartCost') }}").responseJSON.total+' &euro;');         
+     $('.totprod').html(readjson("{{ path('nfe102_resto_showCartCost') }}").responseJSON.totprod);         
              }
 }
 )}; 

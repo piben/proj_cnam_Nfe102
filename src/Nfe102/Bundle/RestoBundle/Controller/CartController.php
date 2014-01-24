@@ -110,6 +110,7 @@ class CartController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $total = '';
+        $totprod ='';
         foreach (array_keys($cart) as $id) {
             $entity = $em->getRepository('Nfe102RestoBundle:Produit')->find($id);
             $prix = $entity->getPrix();
@@ -118,8 +119,9 @@ class CartController extends Controller {
             $cart[$id] = ($prix*$nbproduct);
                     // calcul total
             $total=$total+($prix*$nbproduct);
+            $totprod=$totprod+$nbproduct;
         }
-            $cart += array('total' => $total);
+            $cart += array('totprod' => $totprod,'total' => $total);
         
             return new Response(json_encode($cart), 200);
     }
