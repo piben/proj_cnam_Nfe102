@@ -15,7 +15,7 @@ class ProduitType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('nom', 'text', array('required' => true))
-                ->add('description', 'textarea', array('required' => true))
+                ->add('description', 'textarea', array('attr'=> array('class' => "tinymce"),'required' => true))
                 ->add('image')
                 ->add('prix', 'money', array('required' => true))
                 ->add('dispo', 'choice', array(
